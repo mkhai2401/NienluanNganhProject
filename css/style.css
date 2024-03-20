@@ -43,6 +43,8 @@ h2 {
     width: 100%;
     /* background: rgb(233, 193, 193); */
     padding: 39px 0 0 200px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    background-color: white;
 }
 
 .main{
@@ -76,41 +78,54 @@ h2 {
     font-size: 22px;
 }
 
-ul.listmenu {
+
+.menu > ul{
     padding: 0;
     list-style: none;
     margin: -38px auto;
     width: 50%;
     height: 60px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
 }
 
-/* .listmenu li{
-    color: black;
-} */
-
-/* ul.listmenu li :hover{
-    background-color: #0A5C36;
-    color: aliceblue;
-} */
-
-ul.listmenu li :hover {
-    background-color: #0a5c3669;
+.menu ul li a:hover {
+    background-color: #137544d0;
     color: white;
 }
 
-ul.listmenu li {
+.menu > ul li {
     float: left;
     /* margin: 1px; */
     padding: 14px;
     border: 1px;
+    /* margin-top: 7px; */
+
 }
 
-ul.listmenu li a {
+.menu ul li a {
     text-decoration: none;
-    text-align: center;
+    /* text-align: center; */
     color: rgb(8, 0, 0);
     font-size: 20px;
 }
+
+.dropdown{
+    width: 5%;
+    margin-top: -46px;
+    margin-left: 730px;
+}
+
+.menu ul li a:hover{
+    color: #f4f4ee;
+    background-color: #0A5C36;
+}
+
+.dropdown:hover > .dropdown-menu{
+    display: block;
+    border: none;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
 .sidebar{
     /* border: 1px solid #000; */
     height: auto;

@@ -40,7 +40,8 @@
 
                 <button type="submit" class="tbn">Đăng ký</button>
 
-               
+                <div class="mb-3">
+
             </form>
             
         </div>
