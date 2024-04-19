@@ -2,7 +2,7 @@
     <div id="main">
     <div class="wallcommon">
         <div>
-        <img src="../images/lienhe.jpeg" alt="">
+        <img src="images/lienhe.jpeg" alt="">
         <h1 style="font-family: 'Times New Roman', Times, serif;"><b>Liên hệ với chúng tôi</b></h1>
         </div>
     </div>

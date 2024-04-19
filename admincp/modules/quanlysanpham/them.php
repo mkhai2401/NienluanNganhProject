@@ -42,22 +42,22 @@
         <tr>
             <td>Danh mục: </td>
 
-            <td>
-                <!-- <select name="danhmuc" id=""> -->
-                
+            <td>                   
+                <select name="danhmuc" id="">     
+                <!-- <div> -->
                 <?php 
                     $sql_danhmuc = "SELECT * FROM danhmucsp ORDER BY id_danhmuc DESC";
                     $query_danhmuc = mysqli_query($mysqli,$sql_danhmuc);
-                    while($row_danhmuc = mysqli_fetch_array($query_danhmuc)){             
+                   
+                    while($row_danhmuc = mysqli_fetch_array($query_danhmuc)){                
                 ?>
-                <!-- <option value="<?php echo $row_danhmuc['id_danhmuc'] ?>"><?php echo $row_danhmuc['tendanhmuc'] ?></option> -->
-            <div class="btn-group" role="group" aria-label="Basic checkbox toggle button group">
-            <input type="checkbox" class="btn-check" id="btncheck1" autocomplete="off" name="danhmuc">
-            <label  class="btn btn-outline-primary" value="<?php echo $row_danhmuc['id_danhmuc'] ?>"
-            ><?php echo $row_danhmuc['tendanhmuc'] ?></label>
-            </div> 
-            <?php } ?>
-            <!-- </select> -->
+                <option value="<?php echo $row_danhmuc['id_danhmuc'] ?>"><?php echo $row_danhmuc['tendanhmuc'] ?></option>  
+                <!-- <input type="checkbox" name="danhmuc[]" value="<?php echo $row_danhmuc['id_danhmuc'] ?>"> <?php echo $row_danhmuc['tendanhmuc'] ?> <br> -->
+                <?php } ?>
+                </select>
+                <!-- </div> -->
+        
+       
         </td>
 
             

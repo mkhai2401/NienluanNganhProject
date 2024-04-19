@@ -1,3 +1,52 @@
+<?php 
+    session_start();
+    ob_start();
+    include('../admincp/config/config.php');
+    // ob_start();
+    // include('xulydangky.php');
+    // if((isset($_POST['dangnhap']))&&($_POST['dangnhap'])){
+    //     $user = $_POST['user'];
+    //     $pass = $_POST['pass'];
+    //     $role = checkuser($user, $pass);
+    //     $_SESSION['role']=$role;
+    //     if($role == 1) header('location: ../modules/index.php');
+    //     else header('location: dangnhap.php');
+    // }
+    if(isset($_POST['dangnhap']) ){
+       
+        $taikhoan = $_POST['user'];
+        $matkhau = md5($_POST['pass']);
+        $sql = "SELECT * FROM users WHERE username = '".$taikhoan."' AND passwork='".$matkhau."'";
+        $row = mysqli_query($mysqli,$sql);      
+        $count = mysqli_num_rows($row);
+        $row_user = mysqli_fetch_array($row);
+
+        $_SESSION['position'] = $row_user['position'];
+
+        if($_SESSION['position'] == 3){
+           $_SESSION['user']= $taikhoan; 
+           header("Location: ../index.php");   
+        }elseif($_SESSION['position'] == 1){
+            
+            header('Location: ../admincp/index.php');
+            
+        }
+        
+    //     if($count>0 ){
+    //         if($row_user['position']==1){
+    //             $_SESSION['dangnhap'] = $taikhoan;
+    //             header("Location: ../admincp/index.php");
+    //         }elseif($row_user['position']==3){
+    //             $_SESSION['dangnhap'] = $taikhoan;
+    //             header("Location: ../indexkh.php");
+    //         }
+    // }else{
+    //     $baoloi = "Tài khoản không tồn tại!";
+    // }
+    }
+    
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,39 +63,36 @@
 </head>
 
 <body>
-    <div class="dangkyform">
+    <div class="dangnhapform">
 
         <img src="../images/dangnhap1.jpeg" alt="">
 
         <h4 style="font-family: 'Times New Roman', Times, serif; color: #114232;" class="td">
-        WELCOM TO 5C GARDEN</h3>
+        WELCOM TO 5C GARDEN</h4>
           
         <div class="dkform">
 
             <h1 style="font-family: 'Times New Roman', Times, serif; color: #114232;"><b>ĐĂNG NHẬP</b></h1>  
 
-            <form action="">
+            <form action="<?php echo $_SERVER['PHP_SELF']; ?>" autocomplete="off" method="POST">
 
                 <div>
-                <i class="fa-solid fa-user" style="color: #114232;"></i> <input class="br" type="text" placeholder="Gmail hoặc số điện thoại" required>
+                <i class="fa-solid fa-user" style="color: #114232;"></i> <input name="user" class="br" type="text" placeholder="Số điện thoại" required>
                 </div>
 
                 <div>
-                <i class="fa-solid fa-lock" style="color: #114232;"></i> <input class="br" type="password" placeholder="Mật khẩu" required  >
+                <i class="fa-solid fa-lock" style="color: #114232;"></i> <input name="pass" class="br" type="password" placeholder="Mật khẩu" required  >
                 </div>
 
-                <button type="submit" class="tbn">Đăng nhập</button>
-
+                <button type="submit" name="dangnhap" class="tbn">Đăng nhập</button><br>
+                <?php if(isset($baoloi)&&($baoloi!='')){
+                    echo "<font color='red'> ".$baoloi." </font>"; 
+    }?>
                 
-            </form>
-            
-        </div>
-        <div class="dkn">
-            <a href="dangky.php" >
-            <i class="fa-solid fa-user-plus" style="color: #114232;"></i> Đăng ký tài khoản
-            </a>
-        </div>
-        <a href="index.php"> <i class="fa-solid fa-house"></i>Trang chủ</a>
+            </form>         
+        </div>      
     </div>
+    <a class="gototop" href="../index.php"><i class="fa-solid fa-house" style="color:#0A5C36;"></i></a>
+    <a class="gotoDangNhap" href="dangky.php"><i class="fa-solid fa-user-plus" style="color: #0A5C36;"></i></a>
 </body>
 </html>

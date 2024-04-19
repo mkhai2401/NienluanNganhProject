@@ -5,10 +5,10 @@ $tensanpham = $_POST['tensp'];
 $masp = $_POST['masp'];
 $giasp = $_POST['giasp'];
 $soluong = $_POST['soluongsp'];
+
 //XỬ LÝ HÌNH ẢNH
 $hinhanh = $_FILES['hinhanhsp']['name'];
 $hinhanh_tmp = $_FILES['hinhanhsp']['tmp_name'];
-// $hinhanh = time() . '_' . $hinhanh;
 
 $tomtat = $_POST['tomtat'];
 $noidung = $_POST['noidung'];
@@ -17,23 +17,36 @@ $danhmuc = $_POST['danhmuc'];
 
 //THEM
 if (isset($_POST['themsp'])) {
-    $sql_them = "INSERT INTO  sanpham(tensanpham,masp,giasp,soluong,hinhanh,tomtat,noidung,trangthai) 
+    $sql_them = "INSERT INTO  sanpham(tensanpham,masp,giasp,soluong,hinhanh,tomtat,noidung,trangthai,id_danhmuc) 
         VALUE('" . $tensanpham . "', '" . $masp . "', '" . $giasp . "', '" . $soluong . "', '" . $hinhanh . "', 
-        '" . $tomtat . "', '" . $noidung . "', '" . $trangthai . "')";
+        '" . $tomtat . "', '" . $noidung . "','" . $trangthai . "', '".$danhmuc."') " ;
+       mysqli_query($mysqli, $sql_them); 
+       move_uploaded_file($hinhanh_tmp, 'uploads/' . $hinhanh);
+
+    //    $idsp = "SELECT id_sp FROM sanpham ORDER BY masp DESC LIMIT 1";
+    //     $query_idsanpham = mysqli_query($mysqli,$idsp);
+    //     $id_sp = mysqli_fetch_array($query_idsanpham);
+        // $sql_themid = "INSERT INTO sp_dm(id_danhmuc) VALUE (45)";
+        
+         
+        // mysqli_query($mysqli,$sql_themid);
+        
     
-        $sql_sp = "SELECT * FROM sanpham,danhmucsp WHERE sanpham.id_sp=danhmucsp.id_danhmuc ORDER BY id_sp DESC";
-        $query_sp = mysqli_query($mysqli,$sql_sp);
-        while($row_sp = mysqli_fetch_array($query_sp)){ 
-        $sql_themspdm ="INSERT INTO sp_dm(id_danhmuc, id_sp) VALUE('".$danhmuc."','".$idsanpham."')" ;
-        mysqli_query($mysqli,$sql_themspdm);
-        }
-     
-    mysqli_query($mysqli, $sql_them);
 
-    move_uploaded_file($hinhanh_tmp, 'uploads/' . $hinhanh);
+    // $iddanhmuc = "SELECT * FROM danhmucsp ORDER BY id_danhmuc DESC";
+    // $query_iddanhmuc = mysqli_query($mysqli,$iddanhmuc);
 
+    
 
+    // $id_dm = mysqli_fetch_array($query_iddanhmuc);
 
+    // foreach($danhmuc as $id_dm){
+       
+    //     $a = "INSERT INTO cay_danhmuc (id_danhmuc) VALUE ('".$id_dm."') ";
+    //     $run = mysqli_query($mysqli,$a);
+    // }
+
+    
     // $sql_danhmuc = "SELECT id_danhmuc FROM danhmucsp ";
     // $query_danhmuc = mysqli_query($mysqli,$sql_danhmuc);
     // while($a_danhmuc = mysqli_fetch_array($query_danhmuc)){

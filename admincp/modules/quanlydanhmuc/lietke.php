@@ -9,6 +9,7 @@
     <tr>
         <th>Thứ tự</th>
         <th width = "300px">Tên danh mục</th>
+        <th width = "200px">Hình ảnh</th>
         <th width = "150px">Quản lý</th>
     </tr>
 
@@ -20,6 +21,8 @@
         <tr>
             <td > <?php echo $i ?> </td>
             <td> <?php echo  $row['tendanhmuc'] ?></td>
+            <td><img src="modules/quanlydanhmuc/uploads/<?php echo  $row['hinhanhdm'] ?>" height="200px" width="200px"></td>
+
             <td><a href="modules/quanlydanhmuc/xuly.php?iddanhmuc=<?php echo $row['id_danhmuc'] ?>">Xóa</a> | 
             <a href="?action=quanlydanhmuc&query=sua&iddanhmuc=<?php echo $row['id_danhmuc'] ?>">Sửa</a></td>
         </tr>

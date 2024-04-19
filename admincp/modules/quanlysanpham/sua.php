@@ -51,29 +51,29 @@
             <td><textarea name="noidung" rows="10" cols="50"  style="resize: none"><?php echo $row['noidung'] ?></textarea></td>
         </tr>
 
-        <!-- <tr> -->
-            <!-- <td>Danh mục: </td>
-            <td> -->
-                <!-- <select name="danhmuc" id=""> -->
+        <tr>
+        <td>Danh mục: </td>
+            <td>
+                <select name="danhmuc" id="">
 
-                <!-- <?php 
+                <?php 
                     $sql_danhmuc = "SELECT * FROM danhmucsp ORDER BY id_danhmuc DESC";
                     $query_danhmuc = mysqli_query($mysqli,$sql_danhmuc);
                     while($row_danhmuc = mysqli_fetch_array($query_danhmuc)){  
                         if($row_danhmuc['id_danhmuc'] == $row['id_danhmuc']){
 
-                ?> -->
-                <!-- <option selected value="<?php echo $row_danhmuc['id_danhmuc'] ?>"><?php echo $row_danhmuc['tendanhmuc'] ?></option> -->
-                   <!-- <?php 
+                ?>
+                 <option selected value="<?php echo $row_danhmuc['id_danhmuc'] ?>"><?php echo $row_danhmuc['tendanhmuc'] ?></option>
+                   <?php 
                    }else{
                     ?>
-                <!-- <option value="<?php echo $row_danhmuc['id_danhmuc'] ?>"><?php echo $row_danhmuc['tendanhmuc'] ?></option>     -->
+                 <option value="<?php echo $row_danhmuc['id_danhmuc'] ?>"><?php echo $row_danhmuc['tendanhmuc'] ?></option>     
                     <?php
                    }
                 } 
                 ?>
             </select></td>
-        <!-- </tr> --> -->
+        </tr>
 
         <tr>
             <td>Trạng thái: </td>

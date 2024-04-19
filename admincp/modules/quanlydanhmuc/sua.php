@@ -7,7 +7,7 @@
 
 <h3>Chỉnh sửa danh mục sản phẩm</h3>
 
-<form method="POST" action="modules/quanlydanhmuc/xuly.php?iddanhmuc=<?php echo $_GET['iddanhmuc'] ?>">
+<form method="POST" action="modules/quanlydanhmuc/xuly.php?iddanhmuc=<?php echo $_GET['iddanhmuc'] ?>" enctype="multipart/form-data">
 
 <?php
     while($dong = mysqli_fetch_array($query_sua_danhmuc))
@@ -17,6 +17,13 @@
         <tr>
             <td>Tên Danh mục sản phẩm: </td>
             <td><input type="text" value="<?php echo $dong['tendanhmuc'] ?>" name="tendanhmuc"></td>
+        </tr>
+
+        <tr>
+            <td>Hình ảnh: </td>
+            <td><input type="file" name="hinhanhdm">
+            <img src="modules/quanlydanhmuc/uploads/<?php echo  $dong['hinhanhdm'] ?>" width="200px"></td>
+            
         </tr>
 
         <tr>

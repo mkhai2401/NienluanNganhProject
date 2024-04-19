@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -22,35 +23,49 @@
 
         <div class="dkform">
 
-            <h1 style="font-family: 'Times New Roman', Times, serif; color: #114232;"><b>ĐĂNG KÝ</b></h1>  
-
-            <form action="">
-
+            <form method="POST" action="xulydangky.php" enctype="multipart/form-data">
+                <h1 class="ps-5" style="font-family: 'Times New Roman', Times, serif; color: #114232;"><b>ĐĂNG KÝ</b></h1> 
+        
                 <div>
-                <i class="fa-solid fa-user" style="color: #114232;"></i> <input class="br" type="text" placeholder="Gmail hoặc số điện thoại" required>
+                    <i class="fa-solid fa-envelope" style="color:#114232 ;"></i>
+                    <input class="br" name="gmail" type="email" placeholder="Gmail" required>
                 </div>
 
                 <div>
-                <i class="fa-solid fa-lock" style="color: #114232;"></i> <input class="br" type="password" placeholder="Mật khẩu" required  >
+                    <i class="fa-solid fa-envelope" style="color:#114232 ;"></i>
+                    <input class="br" name="hoten" type="text" placeholder="Họ tên khách hàng" required>
                 </div>
 
                 <div>
-                <i class="fa-solid fa-lock" style="color: #114232;"></i> <input class="br" type="password" placeholder="Nhập lại mật khẩu" required  >
+                    <i class="fa-solid fa-phone" style="color: #114232;"></i> 
+                    <input class="br" name="sdt" type="text" placeholder="Số điện thoại" required>
                 </div>
 
-                <button type="submit" class="tbn">Đăng ký</button>
+                <div>
+                    <i class="fa-solid fa-lock" style="color: #114232;"></i> 
+                    <input class="br" name="password" type="password" placeholder="Mật khẩu" required  >
+                </div>
 
-                <div class="mb-3">
+                <div>
+                <i class="fa-solid fa-lock" style="color: #114232;"></i> 
+                <input class="br" type="password" placeholder="Nhập lại mật khẩu" required  >
+                </div>
 
+                <div>
+                <i class="fa-solid fa-location-dot" style="color: #114232;"></i> 
+                <input class="br" type="text" name="diachi" placeholder="Địa chỉ" required>
+                </div>
+
+                <input type="submit" name="dangky" class="dangky" value="Đăng ký">
+                <br>
+                <?php if(isset($_POST['dangky'])){
+                    echo "<font color='green'><p>Đăng ký thành công!<?p></font>" ;}
+                    ?>
             </form>
-            
+
         </div>
-        <div class="dnn">
-            <a href="dangnhap.php" >
-            <i class="fa-solid fa-right-to-bracket fa-lg" style="color: #114232;"></i>Đăng nhập ngay
-            </a>
-        </div>
-        <a href="index.php"><i class="fa-solid fa-house"></i>Trang chủ</a>
-    </div>
+</div>
+<a class="gototop" href="../index.php"><i class="fa-solid fa-house" style="color:#0A5C36;"></i></a>
+<a class="gotoDangNhap" href="dangnhap.php"><i class="fa-solid fa-right-to-bracket" style="color: #0A5C36;"></i></a>
 </body>
 </html>

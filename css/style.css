@@ -1,6 +1,6 @@
 body{
-    margin: 0;
-    padding: 0;
+    /* margin: 0;
+    padding: 0; */
 }
 
 h2 {
@@ -8,7 +8,6 @@ h2 {
 }
 
 .wrapper{
-    /* border: 1px solid #000; */
     height: auto;
     width: 100%;
     margin: 0 auto  ;
@@ -16,18 +15,22 @@ h2 {
 }
 
 .header{
-    /* border: 1px solid #000; */
     height: 100px;
     width: 100%;
-    /* background-image: url(../images/10.jpg); */
     background-color: #0A5C36;
     background-repeat: no-repeat;
     background-size: 100% 180px;
 }
 
 .header p{
-    margin-top: -62px ;
+    margin-top: -25px ;
     margin-left: 25%;
+    color: white;
+}
+
+.header div{
+    margin-top: -62px ;
+    margin-left: 85%;
     color: white;
 }
 
@@ -38,17 +41,14 @@ h2 {
 }
 
 .menu{
-    /* border: 1px solid #000; */
     height: 60px;
     width: 100%;
-    /* background: rgb(233, 193, 193); */
     padding: 39px 0 0 200px;
     font-family: Georgia, 'Times New Roman', Times, serif;
     background-color: white;
 }
 
 .main{
-    /* border: 1px solid #000; */
     height: auto;
     width: 100%;
 }
@@ -78,13 +78,9 @@ h2 {
     font-size: 22px;
 }
 
-
 .menu > ul{
-    padding: 0;
     list-style: none;
     margin: -38px auto;
-    width: 50%;
-    height: 60px;
     font-family: Georgia, 'Times New Roman', Times, serif;
 }
 
@@ -95,24 +91,21 @@ h2 {
 
 .menu > ul li {
     float: left;
-    /* margin: 1px; */
     padding: 14px;
     border: 1px;
-    /* margin-top: 7px; */
 
 }
 
 .menu ul li a {
     text-decoration: none;
-    /* text-align: center; */
     color: rgb(8, 0, 0);
     font-size: 20px;
 }
 
 .dropdown{
     width: 5%;
-    margin-top: -46px;
-    margin-left: 730px;
+    margin-top: 14px;
+    margin-left: 440px;
 }
 
 .menu ul li a:hover{
@@ -123,11 +116,11 @@ h2 {
 .dropdown:hover > .dropdown-menu{
     display: block;
     border: none;
-    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-family: Tahoma, Geneva, sans-serif;
+    
 }
 
 .sidebar{
-    /* border: 1px solid #000; */
     height: auto;
     width: 70%;
     margin-top: 100px;
@@ -152,18 +145,6 @@ h2 {
     color: white;
 }
 
-/* .listsidebar li div p{
-    width: auto;
-    height: 50px;
-    color: #0b2c02;
-    position: absolute;
-    margin: 0 auto;
-    background-color: rgba(255, 255, 255, 0.738);
-    padding: 10px;
-    font-size: 22px;
-} */
-
-
 ul.listsidebar {
     padding: 0;
     margin-top: 40px;
@@ -171,18 +152,6 @@ ul.listsidebar {
     width: 100%;
     
 }
-
-/* ul.listsidebar li:hover {
-    background: #749F82;
-} */
-
-/* ul.listsidebar li {
-    margin: 1px;
-    padding: 5px;
-    padding-left: 15px;
-    float: right;
-    border: 1px;
-} */
 
 ul.listsidebar li a {
     text-decoration: none;
@@ -194,7 +163,6 @@ ul.listsidebar li a {
     width: 22%;
     background-color: white;
     border: 0.5px solid #0A5C36;
-    /* padding: 5px; */
     float: left;
     margin: 5px;
     height: auto;
@@ -203,38 +171,41 @@ ul.listsidebar li a {
 .sidebar li img{
     width: 100%;
     height: 270px;
-    /* padding: 10px; */
 }
 
-/* .sidebar li div a{
-    font-size: 20px;
-    margin-left: 20%;
-} */
-
 .maincontent{
-    /* border: 1px solid #000; */
     height: auto;
     width: 100%;
     margin-top: 100px;
     float: right;
-    
-    /* background-color: #f3f8ef; */
+
 }
 
 .sanpham{
     padding-left: 20px;
-    padding-top: 40px;
+    padding-top: 0px;
     list-style: none;
-    width: 100%;
-    
+    width: 100%;  
 }
 
 .sanpham li{
+    font-family: Tahoma, Geneva, sans-serif;
     width: 19%;
     background-color: white;
     float: left;
     margin: 5px;
-    height: 380px;
+    height: auto;
+}
+
+.sanpham input{
+    margin-top: 10px;
+    margin-left:  12px;
+    margin-bottom: 10px;
+    border-radius: 10px;
+    border: 1px solid#DBE7C9;
+    background-color: #789461;
+    color: #DBE7C9;
+    font-family: Tahoma, Geneva, sans-serif;
 }
 
 .sanpham li img{
@@ -243,8 +214,7 @@ ul.listsidebar li a {
 }
 
 .sanpham li p {
-    padding-left: 15px;
-    padding-top: 15px;
+    padding-top: 15px; 
 }
 
 .sanpham li b{
@@ -255,7 +225,6 @@ ul.listsidebar li a {
 
 .clear{
     clear: both;
-    
 }
 
 .kcach{
@@ -289,18 +258,6 @@ ul.listsidebar li a {
     height: auto;
 }
 
-/* .danhmuc{
-    margin: 10px 20% auto 25%;
-    color: #145203;
-    font-size: 20px;
-    width: 246px;
-    background-color: #bbebae;
-    list-style: none;
-    float: left;
-    padding-left: 10px;
-} */
-
-
 .timkiem{
     position: absolute;
     top: 25px;
@@ -317,11 +274,11 @@ ul.listsidebar li a {
     width: 100px;
     height: 40px;
     background-color: #0A5C36;
-    border-radius: 20px;
+    border-radius: 20px; 
     border: 1px solid #0A5C36 ;
     position: absolute;
-    top: 25px;
-    right: 120px;
+    top: 80px;
+    right: 10px;
     color: aliceblue;
 }
 
@@ -394,7 +351,6 @@ ul.listsidebar li a {
     margin-top: 37px;
     color: #0A5C36;
     text-align: center;
-
 }
 
 .thongtinlienhe hr{
@@ -402,10 +358,7 @@ ul.listsidebar li a {
     border: 5px solid #0A5C36; /* Định dạng viền đường gạch */
     border-radius: 10px;
     margin: 0 auto;
-
 }
-
-
 
 .thongtinlienhe ul li{
     margin-top: 30px;
@@ -419,7 +372,6 @@ ul.listsidebar li a {
     margin-top: 50px;
     margin-left: 5%;
     padding: 50px;
-
 }
 
 .formlienhe h4{
@@ -440,8 +392,7 @@ ul.listsidebar li a {
     margin-bottom: 25px;
     border-radius: 15px;
     padding: 5px 15px 5px 15px;
-    width: 100%;
-    
+    width: 100%; 
 }
 
 .inputGui{
@@ -471,7 +422,6 @@ ul.listsidebar li a {
 
 .maingioithieu ul{
     float: left;
-    
 }
 
 .maingioithieu ul li{
@@ -502,7 +452,6 @@ ul.listsidebar li a {
     color: #0A5C36;
 }
 
-
 .tuongdanhmuc img{
     height: 400px;
     width: 100%;
@@ -515,18 +464,38 @@ ul.listsidebar li a {
     position: absolute;
     top: 50%; 
     left: 50%; 
-    transform: translate(-50%, -50%); /* Điều chỉnh vị trí để đặt văn bản ở trung tâm */
-    /* background-color: rgba(255, 255, 255, 0.685); */
+    transform: translate(-50%, -50%); 
     padding: 20px;
     text-align: justify;
     font-size: 22px;
-    /* color: #0A5C36; */
     color: white;
-    
     
 }
 .tagdanhmuccay h2{
     text-align: center;
+}
+
+.dangnhapform{
+    width: 850px;
+    height: 550px;
+    background-color: #f4f4ee;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 10px;
+}
+
+.dangnhapform h1{
+    margin-top: -300px;
+    margin-left: 50px;
+}
+
+.dangnhapform img{
+    width: 50%;
+    height: 550px;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
 }
 
 .dangkyform{
@@ -540,6 +509,10 @@ ul.listsidebar li a {
     border-radius: 10px;
 }
 
+.dangkyform h1{
+    margin-top: -300px;
+    margin-left: 10px;
+}
 
 .dangkyform img{
     width: 50%;
@@ -549,21 +522,16 @@ ul.listsidebar li a {
 }
 
 .dkform{
-    margin-top: 70px;
-    padding: 50px;
+    margin-top: 140px;
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-0%, -75%)
-}
-
-.dkform form{
-    margin-top: 50px;
+    transform: translate(-0%, -75%);
 }
 
 .dkform div{
-    margin-top: 20px;
-    border-radius: 10px;
+    padding-top: 20px;
+    padding-left: 50px;
 }
 
 .br{
@@ -586,14 +554,6 @@ ul.listsidebar li a {
     border: 1.5px solid #114232;
 }
 
-.dangkyform  a{
-    color: #114232;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(310%, 850%);
-}
-
 .td{
     position: absolute;
     top: 50%;
@@ -604,15 +564,6 @@ ul.listsidebar li a {
     border-radius: 5px;
 }
 
-.dnn{
-    color: #114232;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-195%, -150%);
-    width: 320px;
-}
-
 .dkn{
     color: #114232;
     position: absolute;
@@ -621,4 +572,99 @@ ul.listsidebar li a {
     transform: translate(-195%, -150%);
     width: 350px;
 }
+.chitietsp{
+    margin-top: 100px;
+    margin-left: 200px;
+}
 
+.chitietsp ul li{
+    list-style: none;
+    width: 40%;
+    float: left;
+    text-align: justify;
+   font-size: 20px;
+   margin-left: 30px;
+}
+
+.gototop{
+    position: fixed;
+    width: 50px;
+    height: 50px;
+    border-radius: 50px;
+    border: 3px solid#0A5C36 ;
+    background-color: none;
+    bottom: 40px;
+    left:50px;
+    text-decoration: none;
+    text-align: center;
+    line-height: 40px;
+    font-size: 25px;
+}
+
+.gotoDangNhap{
+    position: fixed;
+    width: 50px;
+    height: 50px;
+    border-radius: 50px;
+    border: 3px solid#0A5C36 ;
+    background-color: none;
+    bottom: 40px;
+    right:50px;
+    text-decoration: none;
+    text-align: center;
+    line-height: 40px;
+    font-size: 25px;
+}
+
+.giohang{
+    position: fixed;
+    width: 75px;
+    height: 75px;
+    border-radius: 75px;
+    border: 3px solid#0a5c3617 ;
+    background-color: #bcead4;
+    bottom: 40px;
+    right:50px;
+    text-decoration: none;
+    text-align: center;
+    line-height: 70px;
+    font-size: 25px; 
+}
+
+.tablecard{
+    width: 50%;
+    margin-top: 50px;
+    margin-left: 100px; 
+    float: left;
+}
+
+.tablecard tr, .tablecard th{
+    text-align: center;
+    border: 1px solid white;
+}
+
+.tablecard th{
+    background-color: #749F82;
+    color: white;
+}
+
+.tablecard  td{
+    text-align: center;
+    background-color: #749f8253;
+}
+
+.thongtindathang{
+    width: 30%;
+    margin-left: 970px;
+    margin-top: 50px;
+}
+
+.thongtindathang ul li{
+    padding-top: 10px;
+    list-style: none; 
+}
+
+.thongtindathang ul li input{
+    padding: 5px;
+    border-radius: 10px;
+}

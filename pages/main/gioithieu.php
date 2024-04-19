@@ -2,7 +2,7 @@
     <div class="main">
     <div class="wallcommon">
         <div>
-        <img src="../images/home3.jpeg" alt="">
+        <img src="images/home3.jpeg" alt="">
         <h1 style="font-family: 'Times New Roman', Times, serif;"><b>Giới thiệu</b></h1>
         </div>
     </div>
@@ -39,7 +39,7 @@
             </li>
 
             <li>
-                <img src="../images/gioithieu1.jpeg" alt="Hình ở đây">
+                <img src="images/gioithieu1.jpeg" alt="Hình ở đây">
             </li>
             
             <div class="danhngon"><p style="font-family: 'Times New Roman', Times, serif;">

@@ -5,23 +5,37 @@
         }else {
             $a = '';
         }
+        
+        if(isset($_GET['thongtin'])){
+                $thongtin = $_GET['thongtin'];
+                // if($thongtin == 1){
+                //     include 'pagesKH/xulythongtin.php';
+                // }
+            }else{
+                $thongtin = '';
+            }
 
         if($a == 'gioithieu'){
-            include("main/gioithieu.php");
+            include("pages/main/gioithieu.php");
         }elseif($a == 'tintuc'){
-            include("main/tintuc.php");
+            include("pages/main/tintuc.php");
         }elseif($a == 'lienhe'){
-            include("main/lienhe.php");
+            include("pages/main/lienhe.php");
         }elseif($a== 'danhmuccay'){
-            include("main/danhmuccay.php");
+            include("pages/main/danhmuccay.php");
         }elseif($a == 'sanpham'){
-            include("main/sanpham.php");
-        } else{
-            include("main/trangchu.php");
+            include("pages/main/sanpham.php");
+        }elseif($a == 'giohang'){
+            include("pages/main/giohang.php");
+        }elseif ($a == 'thongtin') {
+            include("pagesKH/thongtin.php");
+        }elseif ($thongtin == 1) {
+            include("pagesKH/xulythongtin.php");
         }
-        
-       
-        
+        else{
+            include("pages/main/trangchu.php");
+        }  
     ?>
-
+    <a class="gototop" href="#"><i class="fa-solid fa-angle-up" style="color: #0A5C36;"></i></a>
+    <a class="giohang" href="xemgiohang.php"><i class="fa-solid fa-cart-shopping" style="color:#0A5C36;"></i></a>
 </div>
