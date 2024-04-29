@@ -1,5 +1,6 @@
 <?php 
 session_start();
+include 'admincp/config/config.php';
 ?>
   <!DOCTYPE html>
   <html lang="en">
@@ -26,15 +27,13 @@ session_start();
     include("header.php");
     include('menu.php');
 }
-  
-
 
 if (isset($_SESSION['giohang'])) {
   // echo var_dump($_SESSION['giohang']);   
 ?>
   
  <br><h2 style="font-family: 'Times New Roman', Times, serif; color:#0A5C36 ;"><b>GIỎ HÀNG</b></h2>
-  <table  class="tablecard" border="1" >
+  <br><br><table  class="tablecard" border="1" >
   <tr>    
     <th>STT</th>
     <th width="50px", height="50px">Hình ảnh</th>
@@ -54,7 +53,7 @@ if (isset($_SESSION['giohang'])) {
       ?>
       <tr>
       <td><?php echo $i + 1 ?></td>
-      <td width="50px", height="50px"><img width="100px" src="<?php echo $sp[1] ?>"</td>
+      <td width="50px", height="50px"><img width="100px" src="<?php echo $sp[1] ?>"> </td>
       <td><?php echo $sp[2] ?></td>
       <td><?php echo number_format($sp[3],0,',','.'). ' VNĐ'?></td> 
       <td width="90px"><a href="xulygiohang.php?cong=<?php echo $sp[0]?>"><i class="fa-solid fa-plus fa-xs" style="color: #50623A;"></i></a>
@@ -79,6 +78,44 @@ if (isset($_SESSION['giohang'])) {
   </table>
 
 
+
+<?php 
+  if(isset($_SESSION['position']) && ($_SESSION['position']==3)){
+    // if(isset($_SESSION['user']) ){
+      $sql = "SELECT * FROM users WHERE id_user = '".$_SESSION['user']."' ";
+      $row = mysqli_query($mysqli,$sql);      
+      // $count = mysqli_num_rows($row);
+      $row_user = mysqli_fetch_array($row);
+?>
+<div class="thongtindathang">
+    <h3 style="font-family: 'Times New Roman', Times, serif; color:#0A5C36 ;" >THÔNG TIN ĐẶT HÀNG</h3>
+    <ul>
+
+      <form action="xulygiohang.php" method="post">
+      <li><input type="text" name="hoten" value="<?php echo $row_user['hotenkh']?>"  ></li>
+        <li><input type="phonenumber" name="sdt" required value="<?php echo $row_user['username']?>" ></li>
+        <li><input type="text" name="email" required value="<?php echo $row_user['gmail']?>" ></li>
+        <li><input type="text" name="diachi" required value="<?php echo $row_user['diachi']?>"> </li>
+        <li><input type="hidden" name="iduser" value="<?php echo $row_user['id_user'] ?>"></li>
+      <li>
+        <p>Phương thức thanh toán</p>
+        <input type="hidden" name="tongdonhang" value="<?=$tong?>">
+        <input type="radio" name="pttt" required value="1">Thanh toán khi nhận hàng<br>
+        <input type="radio" name="pttt" required value="2">Chuyển khoản<br>
+        <input type="radio" name="pttt" required value="3">Ví MoMo<br>
+        </li>
+        <li><input type="submit" name="thanhtoan" value="Thanh Toán"></li>
+      </form>
+
+
+    </ul>
+    <p ><a href="index.php" style="text-decoration:  none;">Tiếp tục đặt hàng</a></p>
+  <p><a href="xoagiohang.php" style="text-decoration: none;">Xóa tất cả sản phẩm trong giỏ hàng</a></p>
+  </div>
+<?php 
+}else{
+//CHƯA ĐĂNG NHẬP
+?>
 <div class="thongtindathang">
     <h3 style="font-family: 'Times New Roman', Times, serif; color:#0A5C36 ;" >THÔNG TIN ĐẶT HÀNG</h3>
     <ul>
@@ -104,13 +141,27 @@ if (isset($_SESSION['giohang'])) {
     <p ><a href="index.php" style="text-decoration:  none;">Tiếp tục đặt hàng</a></p>
   <p><a href="xoagiohang.php" style="text-decoration: none;">Xóa tất cả sản phẩm trong giỏ hàng</a></p>
   </div>
+<?php 
+  }
+?>
 
+<!-- ************************************************************************************** -->
 
 <?php
 } else {
-  echo '<br>Giỏ hàng của bạn trống, tiếp tục <a href="index.php">đặt hàng</a>?<?br>';
+  if(isset($_SESSION['dathangthanhcong']) && ($_SESSION['dathangthanhcong'])==0){
+    echo '<h4 style="display: flex; justify-content: center; margin-top: 50px;">
+    Bạn đã đặt hàng thành công!  <a href="index.php?quanly=donhang" style="text-decoration: none;color: #A8E890">Xem đơn hàng</a></h4>';
+    unset($_SESSION['dathangthanhcong']);
+  }
+  echo '<h4 style="display: flex; justify-content: center; margin-top: 100px;">
+  Giỏ hàng của bạn trống, tiếp tục <a href="index.php" style="text-decoration: none;color: #A8E890"> đặt hàng</a>?</h4>';
 }
 include'footer.php';
+// }
 ?>
-  </html>
   
+
+
+  </html>
+ 

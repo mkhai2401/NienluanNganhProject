@@ -26,10 +26,10 @@
             
         </tr>
 
-        <tr>
+        <!-- <tr>
             <td>Thứ tự: </td>
             <td><input type="text" value="<?php echo $dong['thutu'] ?>" name="thutu"></td>
-        </tr>
+        </tr> -->
 
         <tr>
             <td colspan="2"><input type="submit" name="suadanhmuc" value="Lưu lại"></td>

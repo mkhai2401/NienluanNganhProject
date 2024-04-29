@@ -16,21 +16,40 @@
        
         $taikhoan = $_POST['user'];
         $matkhau = md5($_POST['pass']);
+
         $sql = "SELECT * FROM users WHERE username = '".$taikhoan."' AND passwork='".$matkhau."'";
-        $row = mysqli_query($mysqli,$sql);      
+        $row = mysqli_query($mysqli,$sql); 
         $count = mysqli_num_rows($row);
         $row_user = mysqli_fetch_array($row);
 
-        $_SESSION['position'] = $row_user['position'];
+        // if( $row_user['username'] == $taikhoan && $row_user['passwork'] != $matkhau){
+        //     $baoloi = "<p>Mật khẩu không đúng!</p>";
+        // }
+        // elseif($row_user['username'] != $taikhoan){
+        //     $baoloi = "<p>Tài khoản không tồn tại!</p>";
 
-        if($_SESSION['position'] == 3){
-           $_SESSION['user']= $taikhoan; 
-           header("Location: ../index.php");   
-        }elseif($_SESSION['position'] == 1){
-            
-            header('Location: ../admincp/index.php');
-            
-        }
+        //  }else{ 
+        //     $sqlkt = "SELECT * FROM users WHERE username = '".$taikhoan."' AND passwork='".$matkhau."'";
+        //     $rowkt = mysqli_query($mysqli,$sqlkt);
+        //     $count = mysqli_num_rows($rowkt);
+
+            if($count==0){
+                $baoloi = "<p>Tài khoản hoặc Mật khẩu không đúng!</p>"; 
+            }
+            //Thực hiện đăng nhập
+            else{
+                $_SESSION['position'] = $row_user['position'];
+
+                if($_SESSION['position'] == 3){
+                    $iduser = $row_user['id_user'];
+                $_SESSION['user']= $iduser; 
+                header("Location: ../index.php");   
+                }elseif($_SESSION['position'] == 1){
+                    
+                    header('Location: ../admincp/index.php');
+                               
+            }
+    }
         
     //     if($count>0 ){
     //         if($row_user['position']==1){
@@ -85,10 +104,10 @@
                 </div>
 
                 <button type="submit" name="dangnhap" class="tbn">Đăng nhập</button><br>
-                <?php if(isset($baoloi)&&($baoloi!='')){
+                <div><?php if(isset($baoloi)&&($baoloi!='')){
                     echo "<font color='red'> ".$baoloi." </font>"; 
-    }?>
-                
+                }?></div>
+               
             </form>         
         </div>      
     </div>

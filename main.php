@@ -2,18 +2,26 @@
     <?php
         if(isset($_GET['quanly'])){
             $a = $_GET['quanly'];
-        }else {
+        }else{
+        
             $a = '';
         }
+    
+        // if(isset($_GET['thongtin'])){
+        //         $thongtin = $_GET['thongtin'];
+        //     }else{
+        //         $thongtin = '';
+        //     }
+
+    if(isset($_GET['thongtin']) && isset($_GET['matkhau'])){
+            $thongtin = $_GET['thongtin'];
+            $matkhau = $_GET['matkhau'];
+    }else{
+            $thongtin = '';
+            $matkhau = '';
+        }
+            
         
-        if(isset($_GET['thongtin'])){
-                $thongtin = $_GET['thongtin'];
-                // if($thongtin == 1){
-                //     include 'pagesKH/xulythongtin.php';
-                // }
-            }else{
-                $thongtin = '';
-            }
 
         if($a == 'gioithieu'){
             include("pages/main/gioithieu.php");
@@ -29,8 +37,13 @@
             include("pages/main/giohang.php");
         }elseif ($a == 'thongtin') {
             include("pagesKH/thongtin.php");
-        }elseif ($thongtin == 1) {
+        }elseif ($a == 'donhang') {
+            include("pagesKH/donhang.php");
+        }
+        elseif ( $thongtin== 1  && $matkhau == 0) {
             include("pagesKH/xulythongtin.php");
+        }elseif ($thongtin == 0 && $matkhau == 1) {
+            include("pagesKH/xulymatkhau.php");
         }
         else{
             include("pages/main/trangchu.php");

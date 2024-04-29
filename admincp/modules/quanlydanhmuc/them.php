@@ -14,10 +14,10 @@
             <td><input type="file" name="hinhanhdm"></td>
         </tr>
 
-        <tr>
+        <!-- <tr>
             <td>Thứ tự: </td>
             <td><input type="text" name="thutu"></td>
-        </tr>
+        </tr> -->
 
         <tr>
             <td colspan="2"><input type="submit" name="themdanhmuc" value="Thêm danh mục"></td>

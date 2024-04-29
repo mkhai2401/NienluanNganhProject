@@ -2,7 +2,7 @@
 include("../../config/config.php");
 
 $tensanpham = $_POST['tensp'];
-$masp = $_POST['masp'];
+// $masp = $_POST['masp'];
 $giasp = $_POST['giasp'];
 $soluong = $_POST['soluongsp'];
 
@@ -11,15 +11,15 @@ $hinhanh = $_FILES['hinhanhsp']['name'];
 $hinhanh_tmp = $_FILES['hinhanhsp']['tmp_name'];
 
 $tomtat = $_POST['tomtat'];
-$noidung = $_POST['noidung'];
+// $noidung = $_POST['noidung'];
 $trangthai = $_POST['trangthai'];
 $danhmuc = $_POST['danhmuc'];
 
 //THEM
 if (isset($_POST['themsp'])) {
-    $sql_them = "INSERT INTO  sanpham(tensanpham,masp,giasp,soluong,hinhanh,tomtat,noidung,trangthai,id_danhmuc) 
-        VALUE('" . $tensanpham . "', '" . $masp . "', '" . $giasp . "', '" . $soluong . "', '" . $hinhanh . "', 
-        '" . $tomtat . "', '" . $noidung . "','" . $trangthai . "', '".$danhmuc."') " ;
+    $sql_them = "INSERT INTO  sanpham(tensanpham,giasp,soluong,hinhanh,tomtat,trangthai,id_danhmuc) 
+        VALUE('" . $tensanpham . "', '" . $giasp . "', '" . $soluong . "', '" . $hinhanh . "', 
+        '" . $tomtat . "', '" . $trangthai . "', '".$danhmuc."') " ;
        mysqli_query($mysqli, $sql_them); 
        move_uploaded_file($hinhanh_tmp, 'uploads/' . $hinhanh);
 
@@ -64,9 +64,8 @@ elseif (isset($_POST['suasp'])) {
         move_uploaded_file($hinhanh_tmp, 'uploads/' . $hinhanh);
             
         // move_uploaded_file($hinhanh_tmp,'uploads/'.$hinhanh);
-        $sql_sua = " UPDATE sanpham SET tensanpham='" . $tensanpham . "',masp='" . $masp . "' 
-            ,giasp = '" . $giasp . "',soluong = '" . $soluong . "',hinhanh = '" . $hinhanh . "',
-            tomtat = '" . $tomtat . "',noidung = '" . $noidung . "',trangthai = '" . $trangthai . "',id_danhmuc = '" . $danhmuc . "'
+        $sql_sua = " UPDATE sanpham SET tensanpham='" . $tensanpham . "', giasp = '" . $giasp . "',soluong = '" . $soluong . "',hinhanh = '" . $hinhanh . "',
+            tomtat = '" . $tomtat . "', trangthai = '" . $trangthai . "',id_danhmuc = '" . $danhmuc . "'
             WHERE id_sp = '$_GET[idsanpham]' ";
 
         $sql = "SELECT * FROM sanpham WHERE id_sp = '$_GET[idsanpham]' LIMIT 1";
@@ -79,9 +78,8 @@ elseif (isset($_POST['suasp'])) {
 
     } else {
         // move_uploaded_file($hinhanh_tmp,'uploads/'.$hinhanh);
-        $sql_sua = "UPDATE sanpham SET tensanpham='" . $tensanpham . "',masp='" . $masp . "' 
-            ,giasp = '" . $giasp . "',soluong = '" . $soluong . "', tomtat = '" . $tomtat . "',
-            noidung = '" . $noidung . "',trangthai =  '" . $trangthai . "', id_danhmuc = '" . $danhmuc . "'
+        $sql_sua = "UPDATE sanpham SET tensanpham='" . $tensanpham . "', giasp = '" . $giasp . "',soluong = '" . $soluong . "', tomtat = '" . $tomtat . "',
+            trangthai =  '" . $trangthai . "', id_danhmuc = '" . $danhmuc . "'
             WHERE id_sp = '$_GET[idsanpham]' ";
         mysqli_query($mysqli, $sql_sua);
     }

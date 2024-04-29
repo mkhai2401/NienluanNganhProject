@@ -9,10 +9,10 @@
             <td><input type="text" name="tensp"></td>
         </tr>
 
-        <tr>
+        <!-- <tr>
             <td>Mã sản phẩm: </td>
             <td><input type="text" name="masp"></td>
-        </tr>
+        </tr> -->
 
         <tr>
             <td>Giá: </td>
@@ -34,10 +34,10 @@
             <td><textarea name="tomtat" rows="10" cols="50" style="resize: none"></textarea></td>
         </tr>
 
-        <tr>
+        <!-- <tr>
             <td>Nội dung: </td>
             <td><textarea name="noidung" rows="10" cols="50" style="resize: none"></textarea></td>
-        </tr>
+        </tr> -->
 
         <tr>
             <td>Danh mục: </td>

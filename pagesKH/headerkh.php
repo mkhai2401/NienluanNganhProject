@@ -10,7 +10,7 @@
 
     <input class="timkiem" type="search" name="search" placeholder="Tìm kiếm...">
 
-    <div><a href="pages/dangky.php" style="text-decoration: none;color: white">Đơn hàng</a> | 
+    <div><a href="index.php?quanly=donhang" style="text-decoration: none;color: white">Đơn hàng</a> | 
         <a href="index.php?quanly=thongtin" style="text-decoration: none;color: white">Thông tin</a><br>
         <!-- <a href="index.php?dangxuat=1" style="text-decoration: none;color: white">Đăng xuất</a> -->
     </div>

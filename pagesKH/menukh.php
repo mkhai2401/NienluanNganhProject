@@ -4,7 +4,6 @@
    
 ?>
 
-
 <div class="menu">
     <ul class="">
         <li><a href="index.php" style="font-family: 'Times New Roman', Times, serif;">Trang chủ</a></li>
@@ -32,5 +31,6 @@
 
         </ul>
     </div>
+
 
 </div>

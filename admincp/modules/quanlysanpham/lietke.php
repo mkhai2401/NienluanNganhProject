@@ -1,5 +1,5 @@
 <?php
-    $sql_lietke_sp = "SELECT * FROM sanpham,danhmucsp WHERE sanpham.id_danhmuc=danhmucsp.id_danhmuc ORDER BY masp DESC";
+    $sql_lietke_sp = "SELECT * FROM sanpham,danhmucsp WHERE sanpham.id_danhmuc=danhmucsp.id_danhmuc ORDER BY id_sp DESC";
     $query_lietke_sp = mysqli_query($mysqli,$sql_lietke_sp);
 ?>
 
@@ -14,7 +14,7 @@
         <th>Giá</th>
         <th>Số lượng</th>
         <th>Danh mục</th>
-        <th>Mã sản phẩm</th>
+        <!-- <th>Mã sản phẩm</th> -->
         <th>Tóm tắt</th>
         <th>Trạng thái</th>
         <th>Quản lý</th>
@@ -32,7 +32,7 @@
             <td> <?php echo  $row['giasp'] ?></td>
             <td> <?php echo  $row['soluong'] ?></td>
             <th> <?php echo  $row['tendanhmuc'] ?></th>
-            <td> <?php echo  $row['masp'] ?></td>
+            <!-- <td> <?php echo  $row['masp'] ?></td> -->
             <td> <?php echo  $row['tomtat'] ?></td>
 
             <td> <?php if($row['trangthai']==1){

@@ -1,4 +1,8 @@
-<?php 
+<?php
+require 'carbon/autoload.php';
+use Carbon\Carbon;
+use Carbon\CarbonInterval;
+
 include 'admincp/config/config.php'; 
 
     session_start();
@@ -7,6 +11,7 @@ include 'admincp/config/config.php';
     //THEM SP VAO GIO HANG 
     if(!isset($_SESSION['giohang'])) $_SESSION['giohang'] = array();
     if(isset($_POST['themgiohang']) && ($_POST['themgiohang']) ){
+
         $id = $_POST['idsp'];
         $hinhanh = $_POST['hinhanh'];
         $tensp = $_POST['tensp'];
@@ -72,30 +77,106 @@ include 'admincp/config/config.php';
     }
 
                 
-                // THEM DON HANG
+    // THEM DON HANG
     if(isset($_POST['thanhtoan'])&&($_POST['thanhtoan'])){
+        require 'mail/sendmail.php';
+        
+        $date = Carbon::now('Asia/Ho_Chi_Minh')->toDateString();
+
+        $a = $date;
+        $b = Carbon::parse($a);
+        $now = $b->format('d/m/Y');
+
         $hoten = $_POST['hoten'];
         $diachi = $_POST['diachi'];
         $email = $_POST['email'];
         $sdt = $_POST['sdt'];
         $pttt = $_POST['pttt'];
+        $id_user = $_POST['iduser'];
         $tongdonhang = $_POST['tongdonhang'];
         $mdh ="5C".rand(0,999999);
-                    
-                    //tao don hang
-        $sql_them = "INSERT INTO tbl_order(madh,tongdonhang,pttt,hoten,diachi,email,sdt) 
-        VALUE('".$mdh."','".$tongdonhang."', '".$pttt."', '".$hoten."', '".$diachi."', '".$email."', '".$sdt."')";
-        mysqli_query($mysqli,$sql_them);
+              
+        //tao don hang
+        $sql_them = "INSERT INTO tbl_order(madh,tongdonhang,pttt,iduser,hoten,diachi,email,sdt,ngaydathang) 
+        VALUE('".$mdh."','".$tongdonhang."', '".$pttt."','".$id_user."', '".$hoten."', '".$diachi."', '".$email."', '".$sdt."', '".$now."')";
+        $a = mysqli_query($mysqli,$sql_them);
+
+        $sql_lay ="SELECT * FROM tbl_order";
+        $rowa = mysqli_fetch_array(mysqli_query($mysqli,$sql_lay));
         // $sp = array($id, $hinhanh, $tensp, $gia, $sl);
+
+        // $tongtk = $tongdonhang;
+        // $sldonhang = 0;       
+        // $sql_kt = "SELECT * FROM tbl_thongke";
+        // $row_tkkt = mysqli_query($mysqli,$sql_kt);
+        // $thongke = mysqli_fetch_array($row_tkkt);
+
+        // if ($rowa['ngaydathang'] != $thongke['ngaydat']) {
+        //     $sldonhang++;
+        //     $sql_themtk = "INSERT INTO tbl_thongke(ngaydat,doanhthu,sodonhang) 
+        //                     VALUE('".$now."','".$tongdonhang."', '".$sldonhang."')";
+        //     $a = mysqli_query($mysqli,$sql_themtk);
+        // }elseif ($rowa['ngaydathang'] == $thongke['ngaydat']) {
+        //     $ngay = $thongke['ngaydat'];
+        //     $d =  $rowa['ngaydathang'];
+        //     $sql_kt1 = "SELECT * FROM tbl_thongke WHERE ngaydat = '".$d."' ";
+        //     $row_tkkt1 = mysqli_query($mysqli,$sql_kt1);
+        //     $thongke1 = mysqli_fetch_array($row_tkkt1);
+
+        //     $sldonhang = 2+ 1;
+        //     $tongtk = $thongke1['doanhthu']+$tongtk;
+            
+        //     $sql_sua = "UPDATE tbl_thongke SET doanhthu='".$tongtk."', sodonhang='".$sldonhang."' WHERE ngaydat = $ngay ";
+        //     mysqli_query($mysqli,$sql_sua);
+        // }
+                
+
         if(isset($_SESSION['giohang']) && count($_SESSION['giohang'])>0){
+            
             foreach($_SESSION['giohang'] as $item){
                 $sql_themgiohang = "INSERT INTO btl_giohang(iddh,id_sp,soluong,dongia,tensp,img) 
                 VALUE('".$mdh."','".$item[0]."', '".$item[4]."', '".$item[3]."', '".$item[2]."', '".$item[1]."')";
                 mysqli_query($mysqli,$sql_themgiohang);
+                
+                // $sqlt =" SELECT * FROM sanpham WHERE id_sp = $item[0] ";
+                // $row = mysqli_query($mysqli,$sqlt);
+                // $a = mysqli_fetch_array($row);
+                // $luotmua = $a['luotmua'];  
+                // $luotmua= $luotmua + $item[4];
+                // $sql_themlt = "INSERT INTO sanpham(luotmua) VALUE('".$luotmua."')";
             }
+
+            
+            
+            //Xu ly gui mail
+            $tongdh = 0;
+            $tieude = "5C Garden: Quý khách đã đặt hàng thành công!";
+            
+            $noidung ="<h2>5C Garden xin cảm ơn quý khách</h2>             
+                        <h3>Nội dung đơn hàng bao gồm</h3>
+                        <p>Mã đơn hàng: ".$mdh."</p>
+                        <p>Tên khách hàng: ".$hoten."</p>";                
+            foreach ($_SESSION['giohang'] as $key => $val) {
+                $tam = $val[3]*$val[4];
+                $tongdh = $tongdh + $tam ;
+                $noidung .= "<ul>
+                <li>Tên sản phẩm: ".$val[2]."</li>
+                <li>Số lượng: ".$val[4]."</li>
+                <li>Giá: ".number_format($val[3],0,',','.')." đ</li>
+                <li>Tạm tính:".number_format($tam,0,',','.')."</li>
+                </ul> ";
+            }
+            $noidung.= "<p>Địa chỉ giao hàng: $diachi</p>";
+            $noidung.= "<h3>Tổng đơn hàng: ".number_format($tongdh,0,',','.')." VNĐ</h3>";
+            
+            $maildathang = $email;
+            $mail = new Mailer();
+            $mail->dathangmail($tieude,$noidung,$maildathang);
         }
-        
-        header('Location:xemgiohang.php');
+        // $_SESSION['donhang'] = $mdh;
+        unset($_SESSION['giohang']);
+        $_SESSION['dathangthanhcong'] = 0;
+        header('Location: xemgiohang.php');
     }
     
     ?>

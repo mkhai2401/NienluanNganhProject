@@ -1,5 +1,5 @@
 <?php
-    $sql_lietke_danhmuc = "SELECT * FROM danhmucsp ORDER BY thutu DESC";
+    $sql_lietke_danhmuc = "SELECT * FROM danhmucsp ORDER BY id_danhmuc DESC";
     $query_lietke_danhmuc = mysqli_query($mysqli,$sql_lietke_danhmuc);
 ?>
 
@@ -24,7 +24,7 @@
             <td><img src="modules/quanlydanhmuc/uploads/<?php echo  $row['hinhanhdm'] ?>" height="200px" width="200px"></td>
 
             <td><a href="modules/quanlydanhmuc/xuly.php?iddanhmuc=<?php echo $row['id_danhmuc'] ?>">Xóa</a> | 
-            <a href="?action=quanlydanhmuc&query=sua&iddanhmuc=<?php echo $row['id_danhmuc'] ?>">Sửa</a></td>
+            <a href="?action=quanlydanhmuc&query=sua&iddanhmuc=<?php echo $row['id_danhmuc'] ?>">Sửa</td>
         </tr>
         <?php
         }

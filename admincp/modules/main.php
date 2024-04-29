@@ -9,6 +9,12 @@
             $b = '';
         }
 
+        // if(isset($_GET['phanloai'])){
+        //     $c = $_GET['phanloai'];
+        // }else{
+        //     $c ='';
+        // }
+
         if($a == 'quanlydanhmuc' && $b == 'them'){
             include("modules/quanlydanhmuc/them.php");
             include("modules/quanlydanhmuc/lietke.php");
@@ -22,6 +28,20 @@
         }
         elseif($a == 'quanlysanpham' && $b == 'sua'){
             include("modules/quanlysanpham/sua.php");
+        }
+        elseif($a == 'quanlydonhang' && $b == 'them'){
+            include("modules/quanlydonhang/xemdonhang.php");
+        }
+        elseif($a == 'quanlydonhang' && $b == 'xemchitiet'){
+            include("modules/quanlydonhang/chitietdonhang.php");
+        }
+        elseif($a == 'quanlybaiviet' && $b == 'them'){
+            include("modules/quanlybaiviet/them.php");
+            include("modules/quanlybaiviet/lietke.php");
+        }
+        elseif($a == 'quanlybaiviet' && $b == 'sua'){
+            include("modules/quanlybaiviet/sua.php");
+            
         }
         
         else{

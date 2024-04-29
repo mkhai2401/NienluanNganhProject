@@ -19,10 +19,10 @@
             <td><input type="text" value="<?php echo $row['tensanpham'] ?>" name="tensp"></td>
         </tr>
 
-        <tr>
+        <!-- <tr>
             <td>Mã sản phẩm: </td>
             <td><input type="text" value="<?php echo $row['masp'] ?>" name="masp"></td>
-        </tr>
+        </tr> -->
 
         <tr>
             <td>Giá: </td>
@@ -46,10 +46,10 @@
             <td><textarea name="tomtat" rows="10" cols="50"  style="resize: none"><?php echo $row['tomtat'] ?></textarea></td>
         </tr>
 
-        <tr>
+        <!-- <tr>
             <td>Nội dung: </td>
             <td><textarea name="noidung" rows="10" cols="50"  style="resize: none"><?php echo $row['noidung'] ?></textarea></td>
-        </tr>
+        </tr> -->
 
         <tr>
         <td>Danh mục: </td>

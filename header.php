@@ -13,7 +13,7 @@
     session_start();
     ob_start();
 
-    if(isset($_SESSION['danhnhap'])){
+    // if(isset($_SESSION['danhnhap'])){
 ?>
           <div class="header">
             <a href="indexkh.php"><img width="5%" src="images/logo11.jpg"></a>
@@ -28,7 +28,7 @@
             |  <i class="fa-solid fa-phone" style="color: #fafafa;"></i>  0123456789 - 0999999999</p>        
         </div> 
     <?php 
-    }else{
+    // }else{
     ?>
             
  <div class="header">
@@ -42,7 +42,7 @@
             <i class="fa-solid fa-clock" style="color: #f6f7f9;"></i>  8:00 - 20:00    |  <i class="fa-solid fa-phone" style="color: #fafafa;"></i>  0123456789 - 0999999999</p>        
             </div>
     <?php    
-    }
+    // }
     ?> -->
 
     
