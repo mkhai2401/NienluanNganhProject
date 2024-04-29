@@ -22,17 +22,6 @@
         $count = mysqli_num_rows($row);
         $row_user = mysqli_fetch_array($row);
 
-        // if( $row_user['username'] == $taikhoan && $row_user['passwork'] != $matkhau){
-        //     $baoloi = "<p>Mật khẩu không đúng!</p>";
-        // }
-        // elseif($row_user['username'] != $taikhoan){
-        //     $baoloi = "<p>Tài khoản không tồn tại!</p>";
-
-        //  }else{ 
-        //     $sqlkt = "SELECT * FROM users WHERE username = '".$taikhoan."' AND passwork='".$matkhau."'";
-        //     $rowkt = mysqli_query($mysqli,$sqlkt);
-        //     $count = mysqli_num_rows($rowkt);
-
             if($count==0){
                 $baoloi = "<p>Tài khoản hoặc Mật khẩu không đúng!</p>"; 
             }
@@ -51,17 +40,6 @@
             }
     }
         
-    //     if($count>0 ){
-    //         if($row_user['position']==1){
-    //             $_SESSION['dangnhap'] = $taikhoan;
-    //             header("Location: ../admincp/index.php");
-    //         }elseif($row_user['position']==3){
-    //             $_SESSION['dangnhap'] = $taikhoan;
-    //             header("Location: ../indexkh.php");
-    //         }
-    // }else{
-    //     $baoloi = "Tài khoản không tồn tại!";
-    // }
     }
     
 ?>

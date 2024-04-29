@@ -1,87 +1,72 @@
+<?php
+    include 'admincp/config/config.php';
 
-    <div class="wrapper">
+    $sql = "SELECT * FROM tbl_baiviet WHERE phanloai=0 ORDER BY id DESC";
+    $query_sql = mysqli_query($mysqli,$sql);
+    // $a = mysqli_fetch_array($query_sql);
+?>
+<div class="wrapper">
 
-        <div class="wallcommon">
-         <div>
-            <img src="images/tintuc22.webp" alt="">
-            <h1 style="font-family: 'Times New Roman', Times, serif;"><b>Tin tức</b></h1>
-         </div>
+    <div class="wallcommon">
+        <div>
+        <img src="images/tintuc22.webp" alt="">
+        <h1 style="font-family: 'Times New Roman', Times, serif;"><b>Tin tức</b></h1>
         </div>
-
-    <div class="tintuc">
-        <ul>
-            <h1 style="font-family: 'Times New Roman', Times, serif;" ><b style="color: #0A5C36;">Về chúng tôi</b></h1><br>
-            <li>
-                <img src="images/gioithieu1.jpeg" alt="Hình ở đây" width="90%" height="450px">
-            </li>
-            <li>
-                <p style="font-family: 'Lora', serif;" >5C là một cửa hàng độc đáo chuyên cung cấp các loại cây kiểng độc đáo và đẹp mắt, 
-                là điểm đến lý tưởng cho những người yêu thích trồng cây và tạo không gian xanh trong nhà. 
-                Với không gian mở rộng và bài trí tinh tế, 
-                5C không chỉ là nơi để mua sắm mà còn là điểm đến thú vị để khám phá và tìm hiểu về thế giới của các loại cây kiểng.</p>
-
-                <p style="font-family: 'Lora', serif;">Mỗi sản phẩm tại 5C đều được lựa chọn kỹ lưỡng từ các nguồn cung ứng uy tín, 
-                đảm bảo về chất lượng và sức khỏe của cây. Khách hàng có thể dễ dàng chọn lựa từ các 
-                loại cây phong phú như cây cảnh mini, cây phong thủy hay cây nội thất phù hợp với 
-                không gian sống và sở thích của mình. </p>
-
-                <p style="font-family: 'Lora', serif;">Không chỉ cung cấp các sản phẩm cây kiểng chất lượng, 5C còn là nơi cung cấp thông tin 
-                và kiến thức về cách chăm sóc cây hiệu quả. Đội ngũ nhân viên giàu kinh nghiệm và thân 
-                thiện sẽ luôn sẵn lòng hỗ trợ và tư vấn cho khách hàng về cách chăm sóc, bón phân, 
-                và tạo điều kiện tốt nhất để cây phát triển mạnh mẽ. </p>
-
-                <!-- <p>Ngoài ra, 5C còn mang đến cho khách hàng trải nghiệm mua sắm thú vị và tiện lợi với 
-                các dịch vụ giao hàng nhanh chóng và đóng gói cẩn thận. Không chỉ dừng lại ở việc bán hàng, 
-                mà 5C luôn mong muốn xây dựng một cộng đồng yêu cây kiểng, chia sẻ kinh nghiệm và niềm đam mê 
-                với những người cùng chí hướng.</p> -->
-
-                <p style="font-family: 'Lora', serif;">Tóm lại, 5C không chỉ là một cửa hàng bán cây kiểng mà 
-                còn là một điểm đến tinh tế và đầy ý 
-                nghĩa cho những người đam mê cây cảnh. Với cam kết về chất lượng sản phẩm và dịch vụ khách 
-                hàng tận tâm, 5C đã và đang khẳng định vị thế của mình trong cộng đồng yêu cây kiểng và trở 
-                thành địa chỉ tin cậy của mọi người.</p>
-            </li>
-        </ul>           
     </div>
 
-    <div class="tintuc">
-        <ul>
-            <h1 style="font-family: 'Times New Roman', Times, serif;color: #0A5C36;" ><b>Về chúng tôi</b></h1><br>
-            <li>
-                <p style="font-family: 'Lora', serif;" >5C là một cửa hàng độc đáo chuyên cung cấp các loại cây kiểng độc đáo và đẹp mắt, 
-                    là điểm đến lý tưởng cho những người yêu thích trồng cây và tạo không gian xanh trong nhà. 
-                    Với không gian mở rộng và bài trí tinh tế, 
-                    5C không chỉ là nơi để mua sắm mà còn là điểm đến thú vị để khám phá và tìm hiểu về thế giới của các loại cây kiểng.</p>
+    <?php 
+    $i = 0;
+    while ($a = mysqli_fetch_array($query_sql)) {   
+        if($i % 2 == 0){
+     ?>
+        <div class="tintuc">
+            <ul style="background-color: #E8DFCA; padding: 20px; border-radius: 10px;">
+                <h1 style="font-family: 'Times New Roman', Times, serif;" ><b style="color: #0A5C36;"><?php echo $a['tieudetintuc'] ?></b></h1><br>
+                <li >
+                    <img src="admincp/modules/quanlybaiviet/uploads/<?php echo $a['img_tintuc'] ?>" width="90%" height="450px" style="border-radius: 10px;">
+                </li>
+                <li style="font-family: 'Lora', serif;">
+                    <?php ; 
+                    $paragraphs = explode("\n", $a['tintuc']);
+        
+                    // Hiển thị từng đoạn trên trang web
+                    foreach ($paragraphs as $paragraph) {
+                        echo "<p>" . $paragraph . "</p>";
+                    }
+                    ?>
+                </li>
+            </ul>           
+        </div>
+        <br>
+<?php 
+    $i++;
+    }elseif($i % 2 != 0){
+?>      
+        <div class="tintuc" > 
+            <ul style=" background-color: #E8DFCA;border-radius: 10px;padding: 20px;">
+            <h1 style="font-family: 'Times New Roman', Times, serif;color: #0A5C36; right: inherit;" ><b><?php echo $a['tieudetintuc'] ?></b></h1><br>
+                <li style="font-family: 'Lora', serif;">
+                <?php ; 
+                    $paragraphs = explode("\n", $a['tintuc']);
+        
+                    // Hiển thị từng đoạn trên trang web
+                    foreach ($paragraphs as $paragraph) {
+                        echo "<p>" . $paragraph . "</p>";
+                    }
+                    ?>
+                </li>
+                <li style="padding-left:50px ;">
+                    <img src="admincp/modules/quanlybaiviet/uploads/<?php echo $a['img_tintuc'] ?>" alt="Hình ở đây" width="100%" height="450px" style="border-radius: 10px;">
+                </li>
+            </ul>           
+        </div>
+        <br>
                     
-                    <p style="font-family: 'Lora', serif;">Mỗi sản phẩm tại 5C đều được lựa chọn kỹ lưỡng từ các nguồn cung ứng uy tín, 
-                        đảm bảo về chất lượng và sức khỏe của cây. Khách hàng có thể dễ dàng chọn lựa từ các 
-                        loại cây phong phú như cây cảnh mini, cây phong thủy hay cây nội thất phù hợp với 
-                        không gian sống và sở thích của mình. </p>
-                        
-                        <p style="font-family: 'Lora', serif;">Không chỉ cung cấp các sản phẩm cây kiểng chất lượng, 5C còn là nơi cung cấp thông tin 
-                            và kiến thức về cách chăm sóc cây hiệu quả. Đội ngũ nhân viên giàu kinh nghiệm và thân 
-                            thiện sẽ luôn sẵn lòng hỗ trợ và tư vấn cho khách hàng về cách chăm sóc, bón phân, 
-                            và tạo điều kiện tốt nhất để cây phát triển mạnh mẽ. </p>
-                            
-                            <!-- <p>Ngoài ra, 5C còn mang đến cho khách hàng trải nghiệm mua sắm thú vị và tiện lợi với 
-                                các dịch vụ giao hàng nhanh chóng và đóng gói cẩn thận. Không chỉ dừng lại ở việc bán hàng, 
-                                mà 5C luôn mong muốn xây dựng một cộng đồng yêu cây kiểng, chia sẻ kinh nghiệm và niềm đam mê 
-                                với những người cùng chí hướng.</p> -->
-                                
-                                <p style="font-family: 'Lora', serif;">Tóm lại, 5C không chỉ là một cửa hàng bán cây kiểng mà 
-                                    còn là một điểm đến tinh tế và đầy ý 
-                                    nghĩa cho những người đam mê cây cảnh. Với cam kết về chất lượng sản phẩm và dịch vụ khách 
-                                    hàng tận tâm, 5C đã và đang khẳng định vị thế của mình trong cộng đồng yêu cây kiểng và trở 
-                                    thành địa chỉ tin cậy của mọi người.</p>
-                                </li>
-                                <li style="padding-left:50px ;">
-                                    <img src="images/gioithieu1.jpeg" alt="Hình ở đây" width="100%" height="450px">
-                                </li>
-                            </ul>           
-                        </div>
-                        
-                        
-                        
-                        
-                    </div>
+<?php 
+    $i--;
+    }
+} ?>                  
                     
+                    
+</div>
+                

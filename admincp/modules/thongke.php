@@ -9,7 +9,7 @@
     $b = Carbon::parse($a);
     $now = $b->format('d/m/Y');
 
-    $c = Carbon::now('Asia/Ho_Chi_Minh')->subdays()->toDateString();
+    $c = Carbon::now('Asia/Ho_Chi_Minh')->subdays(7)->toDateString();
     $dat = Carbon::parse($c);
     $subdays = $dat->format('d/m/Y');
 

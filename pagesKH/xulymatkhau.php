@@ -2,7 +2,7 @@
 // session_start();
 include 'admincp/config/config.php'; 
 if(isset($_SESSION['user']) ){
-  $sql = "SELECT * FROM users WHERE username = '".$_SESSION['user']."' ";
+  $sql = "SELECT * FROM users WHERE id_user = '".$_SESSION['user']."' ";
   $row = mysqli_query($mysqli,$sql);      
   // $count = mysqli_num_rows($row);
   $row_user = mysqli_fetch_array($row);
@@ -12,7 +12,7 @@ if(isset($_SESSION['user']) ){
 
   <h3 class="ps-5" style="font-family: 'Times New Roman', Times, serif; color: #114232;"><b>Thay đổi mật khẩu</b></h3><br> 
 <form  method="POST" action="pagesKH/capnhatthongtin.php" enctype="multipart/form-data">
-
+<form  method="POST" action="xulymatkhau.php" enctype="multipart/form-data">
     <div>
         <i class="fa-solid fa-envelope" style="color:#114232 ;"></i>
         <input class="br" name="pass" type="password" placeholder="Nhập mật khấu mới" required>
@@ -26,13 +26,30 @@ if(isset($_SESSION['user']) ){
     <input type="submit" name="xacnhan" class="capnhat" value="Xác nhận">
     <!-- class="dangky" -->
     <br>
-    <!-- <?php if(isset($_POST['dangky'])){
-        echo "<font color='green'><p>Đăng ký thành công!<?p></font>" ;}
-        ?> -->
+    <?php if(isset($thongbao) && $thongbao != ''){
+        echo $thongbao ;
+      }
+        ?>
 </form>
 </div>
 
 <?php
 }
 
+if (isset($_POST['xacnhan']) && ($_POST['xacnhan']) ) {
+    
+  $iduser = $_POST['iduser'];
+  $pass = md5($_POST['pass']);
+  $passnew = md5($_POST['passnew']);
+  
+    if($pass == $passnew){
+    $sql_capnhatpass = " UPDATE users SET passwork = '".$pass."' WHERE id_user = '".$iduser."' ";
+    $query = mysqli_query($mysqli, $sql_capnhatpass);
+    header('location: ../index.php?quanly=thongtin');
+    }
+    else{
+      $thongbao = "Mật khẩu không trùng khớp!";
+      header('location: ../index.php?thongtin=0&matkhau=1');
+    }
+  }
 ?>
