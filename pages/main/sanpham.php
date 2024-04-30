@@ -102,6 +102,25 @@
 
 <div class="maincontent">
 <h3 style="font-family: 'Times New Roman', Times, serif;color:#0A5C36;margin-left:200px;"><b>Đánh giá của khách hàng</b></h3><br>
+        
+    <?php 
+        $sql = "SELECT * FROM tbl_danhgia, btl_giohang WHERE tbl_danhgia.madh = btl_giohang.iddh ORDER BY btl_giohang.id DESC";
+        $idsp = mysqli_query($mysqli,$sql);
+        // $tam = mysqli_fetch_array($idsp);
+        while ($tam = mysqli_fetch_array($idsp)) {        
+            if($tam['id_sp'] == $_GET['id']) {
+    ?>
+        <div style="margin-left: 250px; margin-top:10px; height:auto; width:50%; background-color:#75A47F; padding:10px;border-radius:10px">
+            <h6><?php echo $tam['tenkh'] ?><br><?php echo $tam['tgdanhgia'] ?></h6>
+            <p><?php echo $tam['noidungdanhgia'] ?></p>
+        </div>
+    <?php 
+            }
+        }
+// } 
+// echo $tam['id_sp'] ;
+// echo $_GET['id'];
+    ?>
 </div>
 
     </div>

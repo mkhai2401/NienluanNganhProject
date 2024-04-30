@@ -9,11 +9,12 @@
     $b = Carbon::parse($a);
     $now = $b->format('d/m/Y');
 
-    $c = Carbon::now('Asia/Ho_Chi_Minh')->subdays(7)->toDateString();
+    $c = Carbon::now('Asia/Ho_Chi_Minh')->subdays()->toDateString();
     $dat = Carbon::parse($c);
     $subdays = $dat->format('d/m/Y');
 
-    $sql = "SELECT * FROM tbl_thongke WHERE ngaydat BETWEEN '$subdays' AND '$now' ORDER BY ngaydat ASC";
+    $sql = "SELECT * FROM tbl_thongke ";
+    // WHERE ngaydat BETWEEN '01/05/2023' AND '$now' ORDER BY id DESC
     $sql_query = mysqli_query($mysqli,$sql);
 
     while ($val = mysqli_fetch_array($sql_query)) {

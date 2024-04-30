@@ -7,5 +7,6 @@
         <li><a href="index.php?action=quanlynguoidung&query=them">Quản lý người dùng</a></li>
         <li><a href="index.php?action=quanlybaiviet&query=them">Quản lý bài viết</a></li>
         <li><a href="index.php?action=quanlydonhang&query=them">Quản lý Đơn hàng</a></li>
+        <li><a href="index.php?action=chamsockhachhang&query=them">Chăm sóc khách hàng</a></li>
     </ul>
 </div>

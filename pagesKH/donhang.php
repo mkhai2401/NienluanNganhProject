@@ -7,21 +7,13 @@
 
     if(isset($_SESSION['user']) ){    
 
-        // $sql_sapxep = "SELECT * FROM tbl_order ORDER BY id DESC";
-        // $rowsx = mysqli_fetch_array(mysqli_query($mysqli,$sql_sapxep));
-        // echo $rowsx['id'];
         $sql_order = "SELECT * FROM tbl_order WHERE iduser = '".$_SESSION['user']."' ORDER BY id DESC";
         $row = mysqli_query($mysqli,$sql_order); 
              
-        // $row_order = mysqli_fetch_array($row);
-        
-        // echo $row_order['id'];
         while($row_order = mysqli_fetch_array($row)){
 
             $madh = $row_order['madh'];
-
-            // $sql_sapxepgh = "SELECT * FROM tl_giohang ORDER BY id DESC";
-            
+          
             $sql_cart = "SELECT * FROM btl_giohang WHERE iddh = '".$madh."'";
             $rowc = mysqli_query($mysqli,$sql_cart);
 
@@ -65,12 +57,9 @@
             <td style="color:#294B29 ;"><b><?php  echo number_format($row_order['tongdonhang'],0,',','.'). ' VNĐ'  ?></b></td>
         </tr>
     </table>
-    <!-- <p>
-        <a href="?thongtin=1&matkhau=0" style="text-decoration: none;color: #0A5C36"><b>Cập nhật thông tin</b></a> | 
-        <a href="?thongtin=0&matkhau=1" style="text-decoration: none;color: #0A5C36"><b>Đổi mật khẩu</b></a> | 
-        <a href="index.php?dangxuat=1" style="text-decoration: none;color: #0A5C36"><b>Đăng xuất</b></a>
-    </p>  -->
 </form>
+
+
 <div height="auto" class="thongtindathang">
     <h3 style="font-family: 'Times New Roman', Times, serif; color:#0A5C36 ;" >THÔNG TIN GIAO HÀNG</h3>
     <ul>
@@ -93,17 +82,34 @@
                 <p><b>Phương thức thanh toán:</b> Thanh toán khi nhận hàng</p>
            <?php 
            }
+
            if($row_order['trangthai']==1){
-            ?>
-            <input type="submit" value="Đánh giá đơn hàng"
-            style="
-            background-color:#75A47F; 
-            color:white;
-            border-radius:10px;
-            border: 1px solid #75A47F;">
+            ?>             
+            <a href="index.php?quanly=danhgia&iddh=<?php echo $row_order['madh'] ?>">
+                <input type="button" name="danhgia" value="Đánh giá đơn hàng"
+                    style="
+                    background-color:#75A47F; 
+                    color:white;
+                    border-radius:10px;
+                    border: 1px solid #75A47F;"></a>
             <?php 
-           }
+           }elseif ($row_order['trangthai']==2) {
+            ?>
+             <input type="button" value="Đã đánh giá"
+                    style="
+                    background-color:#75A47F; 
+                    color:white;
+                    border-radius:10px;
+                    border: 1px solid #75A47F;">
+          <?php }else
+          {
+            ?>
+            <p style="font-family: 'Times New Roman', Times, serif; color:#0A5C36 ; font-size:22px">
+            <b>Đang giao hàng!</b></p>
+          <?php 
+          }
          ?>
+
         </li>
 
         <!-- <li><input type="submit" name="xacnhandon" value="Xác nhận"></li><br> -->
@@ -115,6 +121,6 @@
   <br>
 <?php
 }
- 
 }
+
 ?>

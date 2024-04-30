@@ -46,7 +46,7 @@
     //XÓA
 elseif(isset($_GET['iddanhmuc'])){
         $id = $_GET['iddanhmuc'];
-        $sql_xoa = "DELETE FROM danhmucsp WHERE id_danhmuc='".$id."' ";
+        $sql_xoa = "DELETE FROM danhmucsp WHERE id_danhmuc='".$id."'";
         mysqli_query($mysqli,$sql_xoa);
         header('Location:../../index.php?action=quanlydanhmuc&query=them');
     }

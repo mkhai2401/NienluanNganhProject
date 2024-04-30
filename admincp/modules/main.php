@@ -43,6 +43,10 @@
             include("modules/quanlybaiviet/sua.php");
             
         }
+        elseif($a == 'chamsockhachhang' && $b == 'them'){
+            include("modules/chamsockhachhang/xemlienhe.php");
+            
+        }
         
         else{
             include("modules/dashboard.php");

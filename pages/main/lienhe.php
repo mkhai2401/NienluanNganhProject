@@ -25,17 +25,41 @@
         <div class="formlienhe">
             <h4 style="font-family: 'Times New Roman', Times, serif;"><b>Gửi ý kiến</b></h4>
             <p class="cangiua"><hr></p>
-            <form action="/submit_form.php" method="post">
+            <form action="index.php?quanly=lienhe" method="post">
                 <!-- <label for="name">Họ và Tên:</label><br> -->
-                <input type="text" id="name" name="name" placeholder="Tên"><br>
+                <input type="text" name="name" placeholder="Tên"><br>
                 <!-- <label for="email">Email:</label><br> -->
-                <input type="email" id="email" name="email" placeholder="Email"><br>
+                <input type="email" name="gmail" placeholder="Email"><br>
                 <!-- <label for="message">Tin nhắn:</label><br> -->
-                <textarea id="message" name="message" rows="4" cols="50" placeholder="Lời nhắn của bạn..."></textarea><br>
+                <textarea name="mess" rows="4" cols="50" placeholder="Lời nhắn của bạn..."></textarea><br>
 
-                <button type="submit" class="inputGui">Gửi</button>
+                <input type="submit" name="gui" class="inputGui" value="Gửi">
+                <?php 
+                include('admincp/config/config.php');
+
+                if (isset($_POST['gui']) && $_POST['gui']) {
+                    $tenlh = $_POST['name'];
+                    $gmail = $_POST['gmail'];
+                    $loinhan = $_POST['mess'];
+            
+                    $sql = "INSERT INTO tbl_lienhe(tenlh,gmail,noidunglienhe) 
+                    VALUE('".$tenlh."','".$gmail."','".$loinhan."')";
+                    $a = mysqli_query($mysqli,$sql);
+                   
+                   
+                        $_SESSION['thongbaolh'] = "Gửi thông tin thành công!
+                        <br>Chúng tôi sẽ phản hồi cho bạn trong thời gian sớm nhất!";
+                        // header('location: ../index.php?quanly=lienhe'); 
+                }
+
+                    if(isset($_SESSION['thongbaolh']) && ($_SESSION['thongbaolh'] != '')){
+                        echo "<font color: green;>" .$_SESSION['thongbaolh']."</font>" ;
+                        unset($_SESSION['thongbaolh']);
+                    }
+                ?>
             </form>
         </div>
     </div>
         
 </div>
+

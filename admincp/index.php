@@ -51,9 +51,9 @@
   
   xkey: 'date',
  
-  ykeys: ['date','order', 'sales'],
+  ykeys: ['order', 'sales'],
   
-  labels: ['Ngày', 'Đơn hàng', 'Doanh thu']
+  labels: ['Đơn hàng', 'Doanh thu']
 });
 function thongke(){
     var text = '365 ngay';

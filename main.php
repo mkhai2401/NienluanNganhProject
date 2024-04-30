@@ -45,6 +45,9 @@
         }elseif ($thongtin == 0 && $matkhau == 1) {
             include("pagesKH/xulymatkhau.php");
         }
+        elseif ($a == 'danhgia') {
+            include("pagesKH/danhgiadon.php");
+        }
         else{
             include("pages/main/trangchu.php");
         }  
