@@ -10,6 +10,7 @@
     $b = mysqli_fetch_array($a);
 ?>
 <h3>Mã đơn hàng: <?php echo $b['madh'] ?></h3>
+<h4>Ngày đặt hàng: <?php echo $b['ngaydathang'] ?></h4>
 <h4>Khách hàng: <?php echo $b['hoten'] ?> | Địa chỉ: <?php echo $b['diachi'] ?> | Email: 
 <?php echo $b['email'] ?></h4>
 

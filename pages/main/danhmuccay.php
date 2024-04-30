@@ -24,11 +24,33 @@
         <?php 
             while($row_pro = mysqli_fetch_array($query_pro)){
         ?>        
-        <a href="index.php?quanly=sanpham&id=<?php echo  $row_pro['id_sp'] ?>"><li> 
+        <!-- <a href="index.php?quanly=sanpham&id=<?php echo  $row_pro['id_sp'] ?>"><li> 
             <img src="admincp/modules/quanlysanpham/uploads/<?php echo $row_pro['hinhanh'] ?>">        
             <p style="color: #000;"><?php echo $row_pro['tensanpham'] ?></p>
             <b style="font-family: 'Quicksand', sans-serif;">Giá: 
                 <?php echo number_format($row_pro['giasp'],0,',','.'). 'VNĐ' ?></b> 
+        </li></a> -->
+
+        <a href="index.php?quanly=sanpham&id=<?php echo  $row_pro['id_sp'] ?>"><li>
+        <img src="admincp/modules/quanlysanpham/uploads/<?php echo $row_pro['hinhanh'] ?>">        
+            <p ><b style="color: #000;"><?php echo $row_pro['tensanpham'] ?></b></p>
+            <b style="font-family: Tahoma, Geneva, sans-serif;">Giá: 
+                <?php echo $row_pro['giasp']. 'VNĐ' ?> </b>
+                <!-- number_format(,0,',','.') -->
+        <form action="xulygiohang.php" method="POST">
+            <input type="hidden" name="idsp" value="<?php echo  $row_pro['id_sp'] ?>">
+            <input type="hidden" name="hinhanh" value="admincp/modules/quanlysanpham/uploads/<?php echo $row_pro['hinhanh'] ?>">
+            <input type="hidden" name="tensp" value="<?php echo $row_pro['tensanpham'] ?>">
+            <input type="hidden" name="gia" value="<?php echo $row_pro['giasp'] ?>">
+            <input 
+                style="
+                    background-color:#75A47F; 
+                    color:white;
+                    border-radius:10px;
+                    border: 1px solid #75A47F;
+                    margin: 10px"
+                type="submit" name="themgiohang" id="myButton" value="Thêm vào giỏ hàng">
+        </form>
         </li></a>
 
         <?php 

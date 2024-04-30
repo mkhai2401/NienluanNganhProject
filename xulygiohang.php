@@ -104,32 +104,7 @@ include 'admincp/config/config.php';
         $sql_lay ="SELECT * FROM tbl_order";
         $rowa = mysqli_fetch_array(mysqli_query($mysqli,$sql_lay));
         // $sp = array($id, $hinhanh, $tensp, $gia, $sl);
-
-        // $tongtk = $tongdonhang;
-        // $sldonhang = 0;       
-        // $sql_kt = "SELECT * FROM tbl_thongke";
-        // $row_tkkt = mysqli_query($mysqli,$sql_kt);
-        // $thongke = mysqli_fetch_array($row_tkkt);
-
-        // if ($rowa['ngaydathang'] != $thongke['ngaydat']) {
-        //     $sldonhang++;
-        //     $sql_themtk = "INSERT INTO tbl_thongke(ngaydat,doanhthu,sodonhang) 
-        //                     VALUE('".$now."','".$tongdonhang."', '".$sldonhang."')";
-        //     $a = mysqli_query($mysqli,$sql_themtk);
-        // }elseif ($rowa['ngaydathang'] == $thongke['ngaydat']) {
-        //     $ngay = $thongke['ngaydat'];
-        //     $d =  $rowa['ngaydathang'];
-        //     $sql_kt1 = "SELECT * FROM tbl_thongke WHERE ngaydat = '".$d."' ";
-        //     $row_tkkt1 = mysqli_query($mysqli,$sql_kt1);
-        //     $thongke1 = mysqli_fetch_array($row_tkkt1);
-
-        //     $sldonhang = 2+ 1;
-        //     $tongtk = $thongke1['doanhthu']+$tongtk;
-            
-        //     $sql_sua = "UPDATE tbl_thongke SET doanhthu='".$tongtk."', sodonhang='".$sldonhang."' WHERE ngaydat = $ngay ";
-        //     mysqli_query($mysqli,$sql_sua);
-        // }
-                
+   
 
         if(isset($_SESSION['giohang']) && count($_SESSION['giohang'])>0){
             
@@ -146,7 +121,6 @@ include 'admincp/config/config.php';
                 // $sql_themlt = "INSERT INTO sanpham(luotmua) VALUE('".$luotmua."')";
             }
 
-            
             
             //Xu ly gui mail
             $tongdh = 0;

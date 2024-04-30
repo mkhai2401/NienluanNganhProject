@@ -7,8 +7,9 @@
     $sql = "SELECT * FROM users WHERE id_user = '".$_SESSION['user']."' ";
     $row = mysqli_query($mysqli,$sql);      
     // $count = mysqli_num_rows($row);
-    $row_user = mysqli_fetch_array($row);
+    $row_user = mysqli_fetch_array($row); 
     
+
 ?>
 
 <div>

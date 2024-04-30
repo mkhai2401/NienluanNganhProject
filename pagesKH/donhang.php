@@ -80,6 +80,7 @@
         <li><b>SĐT:</b> <?php echo $row_order['sdt']?></li>
         <li><b>Email:</b> <?php echo $row_order['email']?></li>
         <li><b>Địa chỉ giao hàng:</b> <?php echo $row_order['diachi']?></li>
+        <li><b>Ngày đặt hàng:</b> <?php echo $row_order['ngaydathang']?></li>
         <!-- <li><input type="hidden" name="iduser" value="<?php echo $row_order['id_user'] ?>"></li> -->
       <li>
         <?php 
@@ -90,7 +91,18 @@
                 <p><b>Phương thức thanh toán:</b> Chuyển khoản</p>
             <?php }else { ?>
                 <p><b>Phương thức thanh toán:</b> Thanh toán khi nhận hàng</p>
-           <?php }
+           <?php 
+           }
+           if($row_order['trangthai']==1){
+            ?>
+            <input type="submit" value="Đánh giá đơn hàng"
+            style="
+            background-color:#75A47F; 
+            color:white;
+            border-radius:10px;
+            border: 1px solid #75A47F;">
+            <?php 
+           }
          ?>
         </li>
 

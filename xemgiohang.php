@@ -89,28 +89,51 @@ if (isset($_SESSION['giohang'])) {
 ?>
 <div class="thongtindathang">
     <h3 style="font-family: 'Times New Roman', Times, serif; color:#0A5C36 ;" >THÔNG TIN ĐẶT HÀNG</h3>
-    <ul>
-
-      <form action="xulygiohang.php" method="post">
-      <li><input type="text" name="hoten" value="<?php echo $row_user['hotenkh']?>"  ></li>
-        <li><input type="phonenumber" name="sdt" required value="<?php echo $row_user['username']?>" ></li>
-        <li><input type="text" name="email" required value="<?php echo $row_user['gmail']?>" ></li>
-        <li><input type="text" name="diachi" required value="<?php echo $row_user['diachi']?>"> </li>
-        <li><input type="hidden" name="iduser" value="<?php echo $row_user['id_user'] ?>"></li>
-      <li>
-        <p>Phương thức thanh toán</p>
-        <input type="hidden" name="tongdonhang" value="<?=$tong?>">
-        <input type="radio" name="pttt" required value="1">Thanh toán khi nhận hàng<br>
-        <input type="radio" name="pttt" required value="2">Chuyển khoản<br>
-        <input type="radio" name="pttt" required value="3">Ví MoMo<br>
+   <form action="xulygiohang.php" method="post">
+    <ul style="font-family: 'Times New Roman', Times, serif;">
+  
+        <li>
+          <i class="fa-solid fa-user" style="color: #114232;"></i>
+           <input style="border: 1.5px solid #75A47F;" type="text" name="hoten" value="<?php echo $row_user['hotenkh']?>">       
         </li>
-        <li><input type="submit" name="thanhtoan" value="Thanh Toán"></li>
+         
+        <li>
+          <i class="fa-solid fa-phone" style="color: #114232;"></i> 
+          <input style="border: 1.5px solid #75A47F;" type="phonenumber" name="sdt" required value="<?php echo $row_user['username']?>">
+        </li>
+
+        <li><i class="fa-solid fa-envelope" style="color:#114232 ;"></i>
+          <input style="border: 1.5px solid #75A47F;" type="text" name="email" required value="<?php echo $row_user['gmail']?>" ></li>
+        
+        <li><i class="fa-solid fa-location-dot" style="color: #114232;"></i> 
+          <input style="border: 1.5px solid #75A47F;" type="text" name="diachi" required value="<?php echo $row_user['diachi']?>"> </li>
+        
+        <li>
+          <input style="border: 1.5px solid #75A47F;" type="hidden" name="iduser" value="<?php echo $row_user['id_user'] ?>"></li>
+      <li style="margin-left: 20px;">
+
+        <p style="color:#75A47F;"><b>Phương thức thanh toán: </b></p>
+        <input type="hidden" name="tongdonhang" value="<?=$tong?>">
+        <input type="radio" name="pttt" required value="1"> Thanh toán khi nhận hàng<br>
+        <input type="radio" name="pttt" required value="2"> Chuyển khoản<br>
+        <input type="radio" name="pttt" required value="3"> Ví MoMo<br>
+        </li>
+        <li><input 
+          style="
+            background-color:#75A47F; 
+            color:white;
+            border-radius:10px;
+            border: 1px solid #75A47F;
+            margin-left: 20px;"  
+          type="submit" name="thanhtoan" value="Đặt hàng"></li>
       </form>
 
 
     </ul>
-    <p ><a href="index.php" style="text-decoration:  none;">Tiếp tục đặt hàng</a></p>
-  <p><a href="xoagiohang.php" style="text-decoration: none;">Xóa tất cả sản phẩm trong giỏ hàng</a></p>
+    <p style="font-family: 'Times New Roman', Times, serif; color:#0A5C36; margin-left: 30px;">
+      <a href="index.php" style="text-decoration: none; color:#75A47F;"><i class="fa-solid fa-cart-shopping" style="color: #75A47F;"></i> Tiếp tục đặt hàng</a>
+       | <a href="xoagiohang.php" style="text-decoration: none; color:#75A47F;"><i class="fa-solid fa-trash" style="color: #75A47F;"></i> Xóa tất cả </a>
+    </p>
   </div>
 <?php 
 }else{
@@ -118,28 +141,36 @@ if (isset($_SESSION['giohang'])) {
 ?>
 <div class="thongtindathang">
     <h3 style="font-family: 'Times New Roman', Times, serif; color:#0A5C36 ;" >THÔNG TIN ĐẶT HÀNG</h3>
-    <ul>
+    <ul style="font-family: 'Times New Roman', Times, serif;">
 
       <form action="xulygiohang.php" method="post">
-      <li><input type="text" name="hoten" required placeholder="Họ tên khách hàng"></li>
-      <li><input type="text" name="diachi" required placeholder="Địa chỉ"></li>
-      <li><input type="text" name="email" required placeholder="Email khách hàng"></li>
-      <li><input type="phonenumber" name="sdt" required placeholder="Số điện thoại"></li>
+      <li><input style="border: 1.5px solid #75A47F;" type="text" name="hoten" required placeholder="Họ tên khách hàng"></li>
+      <li><input style="border: 1.5px solid #75A47F;" type="text" name="diachi" required placeholder="Địa chỉ"></li>
+      <li><input style="border: 1.5px solid #75A47F;" type="text" name="email" required placeholder="Email khách hàng"></li>
+      <li><input style="border: 1.5px solid #75A47F;" type="phonenumber" name="sdt" required placeholder="Số điện thoại"></li>
       <li>
         <br>
-        <p>Phương thức thanh toán</p>
+        <p style="color:#75A47F;"><b>Phương thức thanh toán</b></p>
         <input type="hidden" name="tongdonhang" value="<?=$tong?>">
-        <input type="radio" name="pttt" value="1">Thanh toán khi nhận hàng<br>
-        <input type="radio" name="pttt" value="2">Chuyển khoản<br>
-        <input type="radio" name="pttt" value="3">Ví MoMo<br>
+        <input type="radio" name="pttt" value="1"> Thanh toán khi nhận hàng<br>
+        <input type="radio" name="pttt" value="2"> Chuyển khoản<br>
+        <input type="radio" name="pttt" value="3"> Ví MoMo<br>
         </li>
-        <li><input type="submit" name="thanhtoan" value="Thanh Toán"></li>
+        <li><input 
+          style="
+            background-color:#75A47F; 
+            color:white;
+            border-radius:10px;
+            border: 1px solid #75A47F;"
+            type="submit" name="thanhtoan" value="Thanh Toán"></li>
       </form>
 
 
     </ul>
-    <p ><a href="index.php" style="text-decoration:  none;">Tiếp tục đặt hàng</a></p>
-  <p><a href="xoagiohang.php" style="text-decoration: none;">Xóa tất cả sản phẩm trong giỏ hàng</a></p>
+    <p style="font-family: 'Times New Roman', Times, serif; color:#0A5C36 ;">
+      <a href="index.php" style="text-decoration: none; color:#75A47F;"><i class="fa-solid fa-cart-shopping" style="color: #75A47F;"></i> Tiếp tục đặt hàng</a>
+       | <a href="xoagiohang.php" style="text-decoration: none; color:#75A47F;"><i class="fa-solid fa-trash" style="color: #75A47F;"></i> Xóa tất cả </a>
+    </p>
   </div>
 <?php 
   }
@@ -154,7 +185,7 @@ if (isset($_SESSION['giohang'])) {
     Bạn đã đặt hàng thành công!  <a href="index.php?quanly=donhang" style="text-decoration: none;color: #A8E890">Xem đơn hàng</a></h4>';
     unset($_SESSION['dathangthanhcong']);
   }
-  echo '<h4 style="display: flex; justify-content: center; margin-top: 100px;">
+  echo '<h4 style=" display: flex; justify-content: center; margin-top: 100px;">
   Giỏ hàng của bạn trống, tiếp tục <a href="index.php" style="text-decoration: none;color: #A8E890"> đặt hàng</a>?</h4>';
 }
 include'footer.php';

@@ -46,16 +46,23 @@ $query_pro = mysqli_query($mysqli,$sql_pro);
         ?>      
         <a href="index.php?quanly=sanpham&id=<?php echo  $row_pro['id_sp'] ?>"><li>
         <img src="admincp/modules/quanlysanpham/uploads/<?php echo $row_pro['hinhanh'] ?>">        
-            <p ><b style="color: #000;"><?php echo $row_pro['tensanpham'] ?></b></p>
-            <b style="font-family: Tahoma, Geneva, sans-serif;">Giá: 
-                <?php echo $row_pro['giasp']. 'VNĐ' ?> </b>
-                <!-- number_format(,0,',','.') -->
+        <p ><b style="color: #000;"><?php echo $row_pro['tensanpham'] ?></b></p>
+        <b style="font-family: Tahoma, Geneva, sans-serif;">Giá: 
+            <?php echo number_format($row_pro['giasp'],0,',','.'); ?> VNĐ</b>
+                <!-- number_format($row_pro['giasp'],0,',','.') -->
         <form action="xulygiohang.php" method="POST">
             <input type="hidden" name="idsp" value="<?php echo  $row_pro['id_sp'] ?>">
             <input type="hidden" name="hinhanh" value="admincp/modules/quanlysanpham/uploads/<?php echo $row_pro['hinhanh'] ?>">
             <input type="hidden" name="tensp" value="<?php echo $row_pro['tensanpham'] ?>">
             <input type="hidden" name="gia" value="<?php echo $row_pro['giasp'] ?>">
-            <input type="submit" name="themgiohang" id="myButton" value="Thêm vào giỏ hàng">
+            <input 
+                style="
+                    background-color:#75A47F; 
+                    color:white;
+                    border-radius:10px;
+                    border: 1px solid #75A47F;
+                    margin: 10px"
+                    type="submit" name="themgiohang" id="myButton" value="Thêm vào giỏ hàng">
         </form>
         </li></a>
         
