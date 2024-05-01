@@ -3,12 +3,12 @@
     $query_lietke_danhmuc = mysqli_query($mysqli,$sql_lietke_danhmuc);
 ?>
 
-<h3>Danh sách Danh mục sản phẩm</h3>
+<h2 style="margin-top:50px">Danh sách Danh mục sản phẩm</h2>
 
-<table border="3" style="border-collapse:collapse;" >
+<table  style="border-collapse:collapse; " class="tablecard" >
     <tr>
-        <th>Thứ tự</th>
-        <th width = "300px">Tên danh mục</th>
+        <th width = "75px">Thứ tự</th>
+        <th width = "170px">Tên danh mục</th>
         <th width = "200px">Hình ảnh</th>
         <th width = "150px">Quản lý</th>
     </tr>
@@ -23,8 +23,8 @@
             <td> <?php echo  $row['tendanhmuc'] ?></td>
             <td><img src="modules/quanlydanhmuc/uploads/<?php echo  $row['hinhanhdm'] ?>" height="200px" width="200px"></td>
 
-            <td><a href="modules/quanlydanhmuc/xuly.php?iddanhmuc=<?php echo $row['id_danhmuc'] ?>">Xóa</a> | 
-            <a href="?action=quanlydanhmuc&query=sua&iddanhmuc=<?php echo $row['id_danhmuc'] ?>">Sửa</td>
+            <td><a href="modules/quanlydanhmuc/xuly.php?iddanhmuc=<?php echo $row['id_danhmuc'] ?>"><i class="fa-solid fa-trash" style="color: #1A4D2E;"></i></a> | 
+            <a href="?action=quanlydanhmuc&query=sua&iddanhmuc=<?php echo $row['id_danhmuc'] ?>"><i class="fa-solid fa-pen" style="color: #1A4D2E;"></i></td>
         </tr>
         <?php
         }

@@ -10,7 +10,8 @@
 
     if(isset($_GET['madh'])){
         $madh = $_GET['madh'];
-        $sql = "UPDATE tbl_order SET trangthai=1 WHERE madh = '".$madh."'";
+        
+        $sql = "UPDATE tbl_order SET trangthai= trangthai + 1 WHERE madh = '".$madh."'";
         $query = mysqli_query($mysqli,$sql);
 
         // $sql_lietke_dh = "SELECT * FROM btl_giohang, sanpham WHERE btl_giohang.id_sp = sanpham.id_sp 

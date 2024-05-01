@@ -1,12 +1,12 @@
 <br>
-<h2>Hello</h2>
+<h2>Đơn đặt hàng</h2>
 <?php 
     include 'config/config.php';
     $sql = "SELECT * FROM tbl_order ORDER BY id DESC";
     $row = mysqli_query($mysqli,$sql);
 ?>
 
-<table style="border-collapse:collapse;">
+<table style="border-collapse:collapse;width:110%; margin-left:75px" class="tablecard">
     <tr>
         <th>STT</th>
         <th>Mã đơn hàng</th>
@@ -30,15 +30,23 @@
         <td><?php echo number_format($row_dh['tongdonhang'],0,',','.') ?> VNĐ</td>
         <td><?php echo $row_dh['email'] ?></td>
         <td><?php echo $row_dh['ngaydathang'] ?></td>
-        <td><a href="index.php?action=quanlydonhang&query=xemchitiet&madh=<?php echo $row_dh['madh'] ?>"><i class="fa-regular fa-eye" style="color: #63E6BE;"></i></a></td>
+        <td><a href="index.php?action=quanlydonhang&query=xemchitiet&madh=<?php echo $row_dh['madh'] ?>"><i class="fa-regular fa-eye" style="color: #294B29;"></i></a></td>
         <td>
             <?php if($row_dh['trangthai'] == 0 ){ ?>
-                <a href="modules/quanlythongke/thongke.php?madh=<?php echo $row_dh['madh'] ?>">Xác nhận</a></td>
+                <a style="color:#789461" href="modules/quanlythongke/thongke.php?madh=<?php echo $row_dh['madh'] ?> ">Đợi gói hàng</a></td>
             <?php 
-                }else{   
+                }elseif($row_dh['trangthai'] == 1){   
             ?>
-                <a href="#">Đã xác nhận</a></td>
+                <a style="color:#50623A" href="modules/quanlythongke/thongke.php?madh=<?php echo $row_dh['madh'] ?>">Đã đóng gói</a></td>
             <?php 
+            }elseif ($row_dh['trangthai'] == 2) {
+            ?>
+            <a style="color:#294B29" href="modules/quanlythongke/thongke.php?madh=<?php echo $row_dh['madh'] ?>">Đang vận chuyển</a></td>
+            <?php 
+            }else{
+                ?>
+                <i class="fa-solid fa-check" style="color: #294B29"> </i>
+                <?php
             }
             ?>
     </tr>

@@ -27,11 +27,11 @@
             <p class="cangiua"><hr></p>
             <form action="index.php?quanly=lienhe" method="post">
                 <!-- <label for="name">Họ và Tên:</label><br> -->
-                <input type="text" name="name" placeholder="Tên"><br>
+                <input type="text" required name="name" placeholder="Tên"><br>
                 <!-- <label for="email">Email:</label><br> -->
-                <input type="email" name="gmail" placeholder="Email"><br>
+                <input type="email" required name="gmail" placeholder="Email"><br>
                 <!-- <label for="message">Tin nhắn:</label><br> -->
-                <textarea name="mess" rows="4" cols="50" placeholder="Lời nhắn của bạn..."></textarea><br>
+                <textarea name="mess" rows="4" cols="50" required placeholder="Lời nhắn của bạn..."></textarea><br>
 
                 <input type="submit" name="gui" class="inputGui" value="Gửi">
                 <?php 

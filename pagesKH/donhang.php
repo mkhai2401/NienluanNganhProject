@@ -83,7 +83,23 @@
            <?php 
            }
 
-           if($row_order['trangthai']==1){
+           if ($row_order['trangthai']==0) {
+            ?>
+            <p style="font-family: 'Times New Roman', Times, serif; color:#0A5C36 ; font-size:22px">
+            <b>Đang gói hàng!</b></p>
+            <?php 
+           }elseif($row_order['trangthai']==1){
+           ?>
+           <p style="font-family: 'Times New Roman', Times, serif; color:#0A5C36 ; font-size:22px">
+            <b>Đã đóng gói!</b></p>
+           <?php
+            }elseif($row_order['trangthai']==2){
+             ?>
+             <p style="font-family: 'Times New Roman', Times, serif; color:#0A5C36 ; font-size:22px">
+            <b>Đang giao hàng!</b></p>
+             <?php   
+            }
+           elseif($row_order['trangthai']==3){
             ?>             
             <a href="index.php?quanly=danhgia&iddh=<?php echo $row_order['madh'] ?>">
                 <input type="button" name="danhgia" value="Đánh giá đơn hàng"
@@ -93,22 +109,15 @@
                     border-radius:10px;
                     border: 1px solid #75A47F;"></a>
             <?php 
-           }elseif ($row_order['trangthai']==2) {
-            ?>
-             <input type="button" value="Đã đánh giá"
-                    style="
-                    background-color:#75A47F; 
-                    color:white;
-                    border-radius:10px;
-                    border: 1px solid #75A47F;">
-          <?php }else
-          {
+           }else{
             ?>
             <p style="font-family: 'Times New Roman', Times, serif; color:#0A5C36 ; font-size:22px">
-            <b>Đang giao hàng!</b></p>
+            <b>Đã đánh giá!</b></p>
           <?php 
           }
-         ?>
+            ?>
+            <!-- <p style="font-family: 'Times New Roman', Times, serif; color:#0A5C36 ; font-size:22px">
+            <b>Đang giao hàng!</b></p> -->
 
         </li>
 

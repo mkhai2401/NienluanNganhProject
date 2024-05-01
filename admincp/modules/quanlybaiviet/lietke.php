@@ -9,13 +9,13 @@
 
 <ul style="list-style: none">
     <li>
-        <h3 style="padding-left: 10%;">Danh sách Bài Giới thiệu</h3>
-        <table border="3" style="border-collapse:collapse; width:80%; margin-left:10%" >
+        <h2 style="margin-top:50px">Danh sách Bài Giới thiệu</h2>
+        <table  style="border-collapse:collapse;width:110%;margin-left:50px" class="tablecard" >
         <tr>
-            <th>STT</th>
+            <th width ="50px">STT</th>
             <th width = "150px">Tên bài Giới thiệu</th>
-            <th width = "150px">Hình ảnh</th>
-            <th>Nội dung</th>
+            <th width = "120px">Hình ảnh</th>
+            <th width ="400px">Nội dung</th>
             <th width = "75px">Quản lý</th>
         </tr>
 
@@ -27,10 +27,10 @@
         <tr>
             <td > <?php echo $i ?> </td>
             <td> <?php echo  $row['tieudegioithieu'] ?></td>
-            <td><img src="modules/quanlybaiviet/uploads/<?php echo  $row['img_gioithieu'] ?>" height="200px" width="200px"></td>
+            <td><img src="modules/quanlybaiviet/uploads/<?php echo  $row['img_gioithieu'] ?>" height="200px" width="170px"></td>
             <td><?php echo  $row['baigioithieu'] ?></td>
-            <td><a href="modules/quanlybaiviet/xuly.php?idbaiviet=<?php echo $row['id'] ?>">Xóa</a> | 
-            <a href="?action=quanlybaiviet&query=sua&idbaiviet=<?php echo $row['id'] ?>&phanloai=1">Sửa</td>
+            <td><a href="modules/quanlybaiviet/xuly.php?idbaiviet=<?php echo $row['id'] ?>"><i class="fa-solid fa-trash" style="color: #1A4D2E;"></i></a> | 
+            <a href="?action=quanlybaiviet&query=sua&idbaiviet=<?php echo $row['id'] ?>&phanloai=1"><i class="fa-solid fa-pen" style="color: #1A4D2E;"></i></td>
         </tr>
         <?php
         }
@@ -39,8 +39,8 @@
     </li>
 
     <li><br>
-    <h3 style="padding-left: 10%;">Danh sách Tin tức</h3>
-        <table border="3" style="border-collapse:collapse; width:80%; margin-left:10%" >
+    <h2 style="margin-top:50px">Danh sách Tin tức</h2>
+        <table  style="border-collapse:collapse;width:110%;margin-left:50px" class="tablecard" >
         <tr>
             <th>STT</th>
             <th width = "150px">Tiêu đề tin tức</th>
@@ -59,8 +59,8 @@
             <td> <?php echo  $row1['tieudetintuc'] ?></td>
             <td><img src="modules/quanlybaiviet/uploads/<?php echo  $row1['img_tintuc'] ?>" height="200px" width="200px"></td>
             <td><?php echo  $row1['tintuc'] ?></td>
-            <td><a href="modules/quanlybaiviet/xuly.php?idbaiviet=<?php echo $row1['id'] ?>">Xóa</a> | 
-            <a href="?action=quanlybaiviet&query=sua&idbaiviet=<?php echo $row1['id'] ?>&phanloai=0">Sửa</td>
+            <td><a href="modules/quanlybaiviet/xuly.php?idbaiviet=<?php echo $row1['id'] ?>"><i class="fa-solid fa-trash" style="color: #1A4D2E;"></i></a> | 
+            <a href="?action=quanlybaiviet&query=sua&idbaiviet=<?php echo $row1['id'] ?>&phanloai=0"><i class="fa-solid fa-pen" style="color: #1A4D2E;"></i></td>
         </tr>
         <?php
         }

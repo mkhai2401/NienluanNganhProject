@@ -152,7 +152,47 @@ include 'admincp/config/config.php';
         $_SESSION['dathangthanhcong'] = 0;
         header('Location: xemgiohang.php');
     }
-    
+
+    //THÊM SẢN PHẨM YÊU THÍCH
+    if (!isset($_SESSION['yeuthichsp'])) $_SESSION['yeuthichsp'] = array();
+if (isset($_POST['yeuthichsp']) && ($_POST['yeuthichsp'])) {
+
+    $id = $_POST['idsp'];
+    $hinhanh = $_POST['hinhanh'];
+    $tensp = $_POST['tensp'];
+    $gia = $_POST['gia'];
+
+    if (isset($_POST['sl']) && ($_POST['sl'] > 0)) {
+        $sl = $_POST['sl'];
+    } else {
+        $sl = 1;
+    }
+
+    $fg = 0;
+    //kiem tra san pham da thich co ton tai trong gio hang hay khong
+    $i = 0;
+    foreach ($_SESSION['yeuthichsp'] as $sp) {
+        if ($sp[2] === $tensp) {
+            $slnew = $sl + $sp[4];
+            if ($slnew < 20) {
+                $_SESSION['yeuthichsp'][$i][4] = $slnew;
+                $fg = 1;
+                break;
+            } else {
+                $_SESSION['yeuthichsp'][$i][4] = 20;
+                $fg = 1;
+                break;
+            }
+        }
+        $i++;
+    }
+    if ($fg == 0) {
+        $sp = array($id, $hinhanh, $tensp, $gia, $sl);
+        array_push($_SESSION['yeuthichsp'], $sp);
+    }
+
+    header('location: xemyeuthich.php');
+}
     ?>
 
     

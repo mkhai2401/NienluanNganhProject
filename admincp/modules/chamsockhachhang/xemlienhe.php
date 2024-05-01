@@ -6,14 +6,14 @@
 ?>
 
 <br>
-<h3>xin chao!</h3>
-<table>
+<h2>Chăm sóc khách hàng</h2>
+<table class="tablecard" style="width:100%; margin-left:120px">
     <tr>
         <th>STT</th>
         <th>Tên khách hàng</th>
         <th>Lời nhắn</th>
         <th>Gmail Khách hàng</th>
-        <th>Trạng thái</th>
+        <th width="110px">Trạng thái</th>
         <th>Xóa</th>
     </tr>
     
@@ -35,7 +35,7 @@
        ?>
             <a href="#">Đã phản hồi</a>
        </td>
-       <td><a href="modules/chamsockhachhang/xulylienhe.php?xoa=<?php echo $row['id'] ?>"><i class="fa-solid fa-trash" style="color: #63E6BE;"></i></a></td>
+       <td><a href="modules/chamsockhachhang/xulylienhe.php?xoa=<?php echo $row['id'] ?>"><i class="fa-solid fa-trash" style="color: #1A4D2E;"></i></a></td>
     </tr>   
     <?php } 
     }

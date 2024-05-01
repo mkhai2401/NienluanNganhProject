@@ -33,8 +33,7 @@
                     $iduser = $row_user['id_user'];
                 $_SESSION['user']= $iduser; 
                 header("Location: ../index.php");   
-                }elseif($_SESSION['position'] == 1){
-                    
+                }elseif($_SESSION['position'] == 1){ 
                     header('Location: ../admincp/index.php');
                                
             }

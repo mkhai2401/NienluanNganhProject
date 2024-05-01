@@ -1,8 +1,8 @@
 <br>
-<h3>Thêm sản phẩm</h3>
+<h2>Thêm sản phẩm</h2>
 
 <form method="POST" action="modules/quanlysanpham/xuly.php" enctype="multipart/form-data">
-    <table border="3" style="border-collapse:collapse;">
+    <table border="3" style="border-collapse:collapse;" class="tablecard">
 
         <tr>
             <td>Tên sản phẩm mới: </td>

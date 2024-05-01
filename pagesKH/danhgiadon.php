@@ -60,7 +60,7 @@
     <form action="index.php?quanly=danhgia" method="post">
     <input type="hidden" name="tenkh" value="<?php echo $user['hotenkh'] ?>">
     <input type="hidden" name="madh" value="<?php echo $madh ?>">
-    <textarea style="margin-left: 50px;border:1.5px solid#0A5C36; border-radius:15px;padding:10px" name="danhgia" rows="4" cols="50" placeholder="Nhận xét của bạn về đơn hàng..."></textarea>
+    <textarea style="margin-left: 50px;border:1.5px solid#0A5C36; border-radius:15px;padding:10px" name="danhgia" rows="4" required cols="50" placeholder="Nhận xét của bạn về đơn hàng..."></textarea>
     <br><input style="margin-left: 50px;margin-top:10px;background-color:#75A47F; 
             color:white;
             border-radius:10px;
@@ -85,7 +85,7 @@
             VALUE('".$tenkh."', '".$madh."', '".$noidung."', '".$now."')";
         mysqli_query($mysqli,$sql_them);
 
-        $sql_cntrangthai = "UPDATE tbl_order SET trangthai=2 WHERE madh= '".$madh."'";
+        $sql_cntrangthai = "UPDATE tbl_order SET trangthai= trangthai + 1 WHERE madh= '".$madh."'";
         $query = mysqli_query($mysqli,$sql_cntrangthai);
         header('location: index.php?quanly=donhang');
     }

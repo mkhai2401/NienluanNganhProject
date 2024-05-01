@@ -1,4 +1,5 @@
 <br>
+<!-- <link rel="stylesheet" type="text/css" href="../../../css/stylecp.css"> -->
 <h2>Xem chi tiết đơn hàng</h2>
 <?php 
     include 'config/config.php';
@@ -9,12 +10,12 @@
     $a = mysqli_query($mysqli,$sqla);
     $b = mysqli_fetch_array($a);
 ?>
-<h3>Mã đơn hàng: <?php echo $b['madh'] ?></h3>
-<h4>Ngày đặt hàng: <?php echo $b['ngaydathang'] ?></h4>
-<h4>Khách hàng: <?php echo $b['hoten'] ?> | Địa chỉ: <?php echo $b['diachi'] ?> | Email: 
+<h3 style="font-family: Times New Roman, Times, serif;margin-left:200px;margin-top: 50px;">Mã đơn hàng: <?php echo $b['madh'] ?></h3>
+<h4 style="font-family: Times New Roman, Times, serif;margin-left:200px;">Ngày đặt hàng: <?php echo $b['ngaydathang'] ?></h4>
+<h4 style="font-family: Times New Roman, Times, serif;margin-left:200px;">Khách hàng: <?php echo $b['hoten'] ?> | Địa chỉ: <?php echo $b['diachi'] ?> | Email: 
 <?php echo $b['email'] ?></h4>
 
-<table style="border-collapse:collapse;">
+<table style="border-collapse:collapse;" class="tablecard" >
     <tr>
         <th>STT</th>
         <th>Hình ảnh</th>
@@ -44,4 +45,4 @@
 }
 ?>  
 </table>
-<h3>Tổng đơn hàng: <?php echo number_format($b['tongdonhang'],0,',','.')?> VNĐ</h3>
+<h2 style="margin-top:20px;margin-left:195px">Tổng đơn hàng: <?php echo number_format($b['tongdonhang'],0,',','.')?> VNĐ</h2>

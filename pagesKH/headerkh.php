@@ -13,6 +13,9 @@
     <div><a href="index.php?quanly=donhang" style="text-decoration: none;color: white">Đơn hàng</a> | 
         <a href="index.php?quanly=thongtin" style="text-decoration: none;color: white">Thông tin</a><br>
         <!-- <a href="index.php?dangxuat=1" style="text-decoration: none;color: white">Đăng xuất</a> -->
+        <div>
+    <a href="xemyeuthich.php" style="text-decoration: none;color: white"><i class="fa-regular fa-heart"></i></a>
+    </div>
     </div>
     
     <p style="font-family: 'Times New Roman', Times, serif;">

@@ -3,9 +3,9 @@
 
     ?>
     <br>
-<h3>Thêm bài Giới thiệu</h3>
+<h2>Thêm bài Giới thiệu</h2>
 <form method="POST" action="modules/quanlybaiviet/xuly.php" enctype="multipart/form-data">
-    <table border="3" style="border-collapse:collapse;">
+    <table border="3" style="border-collapse:collapse;" class="tablecard">
 
         <tr>
             <td>Tiêu đề bài viết: </td>
@@ -23,14 +23,14 @@
         </tr>
 
         <tr>
-            <td colspan="2"><input type="submit" name="thembaigioithieu" value="Thêm bài viết"></td>
+            <td colspan="2"><input type="submit" name="thembaigioithieu" value="Thêm bài viết" class="nutnhan" style="margin-left: 420px"></td>
         </tr>
     </table>
 </form><br>
 
-<h3>Thêm Tin tức</h3>
+<h2>Thêm Tin tức</h2>
 <form method="POST" action="modules/quanlybaiviet/xuly.php" enctype="multipart/form-data">
-    <table border="3" style="border-collapse:collapse;">
+    <table border="3" style="border-collapse:collapse;" class="tablecard">
 
         <tr>
             <td>Tiêu đề Tin: </td>
@@ -48,7 +48,7 @@
         </tr>
 
         <tr>
-            <td colspan="2"><input type="submit" name="themtin" value="Thêm Tin"></td>
+            <td colspan="2"><input type="submit" name="themtin" value="Thêm Tin" class="nutnhan" style="margin-left: 420px"></td>
         </tr>
     </table>
 </form><br>

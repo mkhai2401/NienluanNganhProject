@@ -6,13 +6,13 @@
 ?>
 
 <br>
-<h3>Chỉnh sửa sản phẩm</h3>
+<h2>Chỉnh sửa sản phẩm</h2>
 
 <?php 
     while($row = mysqli_fetch_array($query_sua_sanpham)){
 ?>
 <form method="POST" action="modules/quanlysanpham/xuly.php?idsanpham=<?php echo $row['id_sp'] ?>" enctype="multipart/form-data">
-    <table border="3" style="border-collapse:collapse;">
+    <table class="tablecard" style="border-collapse:collapse; width:125%;margin-left:100px">
 
         <tr>
             <td>Tên sản phẩm: </td>
@@ -94,11 +94,11 @@
             </select></td>
         </tr>
 
-        <tr>
-            <td colspan="2">
-                <input type="submit" name="suasp" value="Lưu lại">
-            </td>
-        </tr>
+        
+            
+        
+        
     </table>
+    <input type="submit" name="suasp" value="Lưu lại" class="nutnhan" style="margin-left:650px;margin-top:10px">
 </form>
 <?php }?>

@@ -7,14 +7,14 @@
     $query_sua_baiviet = mysqli_query($mysqli,$sql_sua_baiviet);
 ?>
 
-<h3>Chỉnh sửa Bài viết</h3>
+<h2>Chỉnh sửa Bài viết</h2>
 <form method="POST" action="modules/quanlybaiviet/xuly.php?idbaiviet=<?php echo $_GET['idbaiviet'] ?>" enctype="multipart/form-data">
 
 <?php
     while($dong = mysqli_fetch_array($query_sua_baiviet))
     {
 ?>
-    <table border="3" style="border-collapse:collapse;">
+    <table class="tablecard" style="border-collapse:collapse;">
         <tr>
             <td>Tiêu đề bài viết: </td>
             <td><input type="text" value="<?php echo $dong['tieudegioithieu'] ?>" name="tieudegioithieu"></td>
@@ -33,7 +33,7 @@
         </tr>
 
         <tr>
-            <td colspan="2"><input type="submit" name="suabaigt" value="Lưu lại"></td>
+            <td colspan="2"><input type="submit" name="suabaigt" value="Lưu lại" class="nutnhan"></td>
         </tr>
     </table>
     <?php
@@ -47,13 +47,13 @@
         $query_sua_tin = mysqli_query($mysqli,$sql_sua_tin);
 ?>
         
-<h3>Chỉnh sửa Tin</h3>
+<h2>Chỉnh sửa Tin</h2>
 <form method="POST" action="modules/quanlybaiviet/xuly.php?idbaiviet=<?php echo $_GET['idbaiviet'] ?>" enctype="multipart/form-data">
 <?php
     while($dong1 = mysqli_fetch_array($query_sua_tin))
     {
 ?>
-    <table border="3" style="border-collapse:collapse;">
+    <table  style="border-collapse:collapse;" class="tablecard">
         <tr>
             <td>Tiêu đề tin: </td>
             <td><input type="text" value="<?php echo $dong1['tieudetintuc'] ?>" name="tieudetin"></td>
@@ -70,9 +70,9 @@
             <td><textarea name="noidungtin" rows="10" cols="50" style="resize: none"><?php echo $dong1['tintuc'] ?></textarea></td>
         </tr>
 
-        <tr>
-            <td colspan="2"><input type="submit" name="suatin" value="Lưu lại"></td>
-        </tr>
+        
+        
+        <td colspan="2" ><input type="submit" name="suatin" value="Lưu lại" class="nutnhan"></td>
     </table>
 <?php 
     }
