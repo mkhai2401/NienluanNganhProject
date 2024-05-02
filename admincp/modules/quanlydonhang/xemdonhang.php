@@ -41,7 +41,7 @@
             <?php 
             }elseif ($row_dh['trangthai'] == 2) {
             ?>
-            <a style="color:#294B29" href="modules/quanlythongke/thongke.php?madh=<?php echo $row_dh['madh'] ?>">Đang vận chuyển</a></td>
+            <a style="color:#294B29" href="modules/quanlythongke/thongke.php?iddh=<?php echo $row_dh['madh'] ?>">Đang vận chuyển</a></td>
             <?php 
             }else{
                 ?>

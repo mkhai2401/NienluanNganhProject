@@ -55,3 +55,14 @@
     <a class="gototop" href="#"><i class="fa-solid fa-angle-up" style="color: #0A5C36;"></i></a>
     <a class="giohang" href="xemgiohang.php"><i class="fa-solid fa-cart-shopping" style="color:#0A5C36;"></i></a>
 </div>
+
+<script>
+    window.addEventListener('scroll', function () {
+        var gototop = document.querySelector('.gototop');
+        if (window.scrollY === 0) {
+            gototop.style.display = 'none';
+        } else {
+            gototop.style.display = 'block';
+        }
+    });
+</script>

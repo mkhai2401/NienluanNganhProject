@@ -32,9 +32,9 @@ if (isset($_SESSION['yeuthichsp'])) {
 ?>
 
   <br>
-  <h2 style="font-family: 'Times New Roman', Times, serif; color:#0A5C36 ;"><b>SẢN PHẨM ĐÃ THÍCH</b></h2>
+  <h2 style="font-family: 'Times New Roman', Times, serif; color:#0A5C36;"><b>SẢN PHẨM YÊU THÍCH</b></h2>
   <br><br>
-  <table class="tablecard" border="1">
+  <table class="tablecard" border="1" style="margin-left:360px">
     <tr>
       <th>STT</th>
       <th width="50px" , height="50px">Hình ảnh</th>
@@ -60,15 +60,19 @@ if (isset($_SESSION['yeuthichsp'])) {
     }
     // 
     ?>
-  </table>
+    <tr>
+      <td colspan="5">
   <a href="xoayeuthich.php" style="text-decoration: none; color:#75A47F;"><i class="fa-solid fa-trash" style="color: #75A47F;"></i> Xóa tất cả </a>
+  </td></tr>
+</table>
+  
 
 
 
   
 <?php
 }else{
-  echo "Danh sách yêu thích trống!";
+  echo '<h4 style=" display: flex; justify-content: center; margin-top: 100px;">Danh sách yêu thích trống!</h4>';
 }
 include 'footer.php';
 ?>

@@ -1,6 +1,6 @@
 <br><h3>Dashboard</h3>
-<br><h4 style="margin-left: 15%;">Thống kê doanh thu theo: <span id="text-date"></span></h4>
-<div id="chart" ></div>
+<br><h4 style="">Thống kê doanh thu theo <span id="text-date"></span></h4>
+<div id="chart" style="width:100%;"></div>
 
 <!-- style="height: 350px; width:70%; margin-left:15%" -->
 

@@ -11,12 +11,17 @@
     if(isset($_GET['madh'])){
         $madh = $_GET['madh'];
         
-        $sql = "UPDATE tbl_order SET trangthai= trangthai + 1 WHERE madh = '".$madh."'";
+        $sql = "UPDATE tbl_order SET trangthai = trangthai + 1 WHERE madh = '".$madh."'";
         $query = mysqli_query($mysqli,$sql);
-
+        header('location: ../../index.php?action=quanlydonhang&query=them');
+}
         // $sql_lietke_dh = "SELECT * FROM btl_giohang, sanpham WHERE btl_giohang.id_sp = sanpham.id_sp 
         // AND btl_giohang.iddh = '".$madh."' ORDER BY btl_giohang.id DESC ";
         // $query_lietke_dh = mysqli_query($mysqli,$sql_lietke_dh);
+        if(isset($_GET['iddh'])){
+            $madh = $_GET['iddh'];
+        $sql = "UPDATE tbl_order SET trangthai = trangthai + 1 WHERE madh = '".$madh."'";
+        $query = mysqli_query($mysqli,$sql);
 
         $sql_lietke_dh = "SELECT * FROM tbl_order WHERE madh = '".$madh."' ORDER BY id DESC ";
         $query_lietke_dh = mysqli_query($mysqli,$sql_lietke_dh);
@@ -50,6 +55,6 @@
 
 
         header('location: ../../index.php?action=quanlydonhang&query=them');
-    }
+        }
     
 ?>

@@ -72,7 +72,7 @@
         </tr>
 
         <tr>
-            <td colspan="2"><input type="submit" name="themsp" value="Thêm sản phẩm"></td>
+            <td colspan="2"><input type="submit" name="themsp" class="nutnhan" value="Thêm sản phẩm"></td>
         </tr>
     </table>
 </form>

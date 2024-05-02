@@ -44,10 +44,15 @@
             
         }
         elseif($a == 'chamsockhachhang' && $b == 'them'){
-            include("modules/chamsockhachhang/xemlienhe.php");
-            
+            include("modules/chamsockhachhang/xemlienhe.php");   
         }
-        
+        elseif($a == 'quanlynguoidung' && $b == 'them'){
+            include("modules/quanlynguoidung/them.php");
+            include("modules/quanlynguoidung/lietke.php");      
+        }
+        elseif($a == 'quanlynguoidung' && $b == 'sua'){
+            include("modules/quanlynguoidung/sua.php");      
+        }
         else{
             include("modules/dashboard.php");
         }

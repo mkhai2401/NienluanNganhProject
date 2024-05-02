@@ -10,15 +10,20 @@
 
     <input class="timkiem" type="search" name="search" placeholder="Tìm kiếm...">
 
-    <div><a href="index.php?quanly=donhang" style="text-decoration: none;color: white">Đơn hàng</a> | 
+    <div>
+        <a href="xemyeuthich.php" style="text-decoration: none;color: white;"><i class="fa-regular fa-heart"></i></a> |
+        <a href="index.php?quanly=donhang" style="text-decoration: none;color: white">Đơn hàng</a> | 
         <a href="index.php?quanly=thongtin" style="text-decoration: none;color: white">Thông tin</a><br>
         <!-- <a href="index.php?dangxuat=1" style="text-decoration: none;color: white">Đăng xuất</a> -->
-        <div>
-    <a href="xemyeuthich.php" style="text-decoration: none;color: white"><i class="fa-regular fa-heart"></i></a>
-    </div>
+        
+    
+   <div> 
+
+   </div>
     </div>
     
-    <p style="font-family: 'Times New Roman', Times, serif;">
+    
+    <p style="font-family: 'Times New Roman', Times, serif;margin-top:50">
     <i class="fa-solid fa-clock" style="color: #f6f7f9;"></i>  8:00 - 20:00    
     |  <i class="fa-solid fa-phone" style="color: #fafafa;"></i>  0123456789 - 0999999999</p>        
  </div>

@@ -15,7 +15,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <!-- <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.css"> -->
     <title>Admin page</title>
@@ -56,13 +56,13 @@
 </div>
     <div id="page-content-wrapper">
         
-        <nav class="navbar navbar-expand-lg navbar-light bg-transparent py-4 px-4">
+        <!-- <nav class="navbar navbar-expand-lg navbar-light bg-transparent py-4 px-4"> -->
             <!-- <h1>WELCOM TO ADMIN PAGE</h1> -->
             <?php
     
     include("modules/main.php");
     ?>
-</nav>
+<!-- </nav> -->
 <!-- include("../admincp/modules/main.php") -->
 </div>
 
@@ -74,53 +74,35 @@
 </body>
 
 
-<!-- <script type="text/javascript">
+<script type="text/javascript">
     $(document).ready(function(){
         thongke();
         var char =  new Morris.Area({
             
-            element: 'chart', -->
+            element: 'chart',
             
-            <!-- //   data: [
-                //     { year: '2008', value: 20 },
-                //     { year: '2009', value: 10 },
-                //     { year: '2010', value: 5 },
-                //     { year: '2011', value: 5 },
-                //     { year: '2012', value: 20 }
-                //   ],
-            -->
-            <!-- xkey: 'date',
+             xkey: 'date',
             
             ykeys: ['date', 'order', 'sales'],
             
-            labels: ['Ngày:','Đơn hàng', 'Doanh thu']
+            labels: ['Ngày','Đơn hàng', 'Doanh thu']
         });
-        $('.select-date').change(function(){
-            var thoigian = $(this).val();
-            if(thoigian == '7ngay'){
-                var text = '7 ngày qua';
-            }else if(thoigian == '30ngay'){
-                var text = '30 ngày qua';
-            }else if(thoigian == '365ngay'){
-                var text = '365 ngày qua';
-            }else {
-                var text = 'Hôm nay';
-            }
-            $.ajax({
-                url: "modules/thongke.php",
-                method: "POST",
-                dataType: "JSON",
-                data:{thoigian: thoigian},
-                success: function(date){
-                    char.setData(date);
-                    $('#text-date').text(text);
-                }
-            });
-        });
+       
+            // $.ajax({
+            //     url: "modules/thongke.php",
+            //     method: "POST",
+            //     dataType: "JSON",
+                
+            //     success: function(date){
+            //         char.setData(date);
+            //         $('#text-date').text(text);
+            //     }
+            // });
+       
         
         
         function thongke(){
-            var text = '365 ngay';
+            var text = ':';
             $('#text-date').text(text);
             $.ajax({
                 url: "modules/thongke.php",
@@ -132,8 +114,8 @@
                 }
             });
         }
-    }); -->
-    <!-- </script> -->
+    });
+    </script>
 <?php
 $sql = "SELECT * FROM tbl_thongke  ORDER BY id DESC";
 // 
